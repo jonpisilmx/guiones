@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agencia Reinventa — Repositorio de Guiones · Serie 01</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'Inter', 'sans-serif'],
+            body: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            stoneBg: '#D8D6CE',
+            ivoryPage: '#F2F1EC',
+            ivorySubtle: '#EAE8E1',
+            hairline: '#C8C6BE',
+            charcoal: '#181817',
+            slateMuted: '#5E5D59',
+            midGray: '#7A7872',
+            sage: '#52634F',
+            sageHover: '#41503E',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Ajustes tipográficos y refinamiento editorial suizo */
+    body {
+      background-color: #D8D6CE;
+      color: #181817;
+      font-family: 'Inter', sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1, h2, h3, .font-display {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      letter-spacing: -0.03em;
+    }
+
+    /* Scrollbar discreta acorde a la paleta */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #EAE8E1;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #B8B5AC;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #52634F;
+    }
+
+    /* Banner arquitectónico sutil en tonos arena/oliva/carbón */
+    .editorial-banner {
+      background: linear-gradient(125deg, #D5CFC2 0%, #C4BEA9 45%, #8D9282 78%, #343831 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .editorial-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 82% 28%, rgba(242, 241, 236, 0.22) 0%, transparent 48%),
+                        linear-gradient(to right, rgba(24, 24, 23, 0.04) 1px, transparent 1px),
+                        linear-gradient(to bottom, rgba(24, 24, 23, 0.04) 1px, transparent 1px);
+      background-size: 100% 100%, 48px 48px, 48px 48px;
+      pointer-events: none;
+    }
+
+    /* Efecto espejo para Teleprompter físico */
+    .teleprompter-mirror {
+      transform: scaleX(-1);
+    }
+
+    /* Animaciones suaves */
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-up {
+      animation: fadeSlideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+  </style>
+</head>
+<body class="min-h-screen py-4 px-3 sm:py-8 sm:px-6 lg:py-12 lg:px-10 selection:bg-sage selection:text-ivoryPage">
+
+  <!-- CONTENEDOR PRINCIPAL ESTILO HOJA EDITORIAL (Inspirado en referencia Bent Ginsburg) -->
+  <div class="max-w-[1160px] mx-auto bg-ivoryPage border border-hairline shadow-[0_24px_60px_-15px_rgba(24,24,23,0.12)] rounded-sm">
+    <div class="px-5 sm:px-10 lg:px-14 py-6 sm:py-8">
+
+      <!-- 1. BARRA DE NAVEGACIÓN SUPERIOR MINIMALISTA -->
+      <header class="flex flex-wrap items-center justify-between gap-4 pb-5 border-b border-hairline">
+        <div class="flex items-center gap-3">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-sage"></span>
+          <a href="https://agencireinventa.online" target="_blank" rel="noopener noreferrer" class="text-xs sm:text-sm font-medium tracking-tight text-charcoal hover:text-sage transition-colors">
+            agencireinventa.online
+          </a>
+        </div>
+
+        <nav class="flex flex-wrap items-center gap-4 sm:gap-7 text-xs sm:text-[13px] text-slateMuted">
+          <a href="#manifiesto" class="hover:text-charcoal transition-colors">Manifiesto</a>
+          <a href="#metricas" class="hover:text-charcoal transition-colors">Serie &amp; Métricas</a>
+          <a href="#guiones" class="hover:text-charcoal transition-colors">Guiones (6)</a>
+          <button type="button" onclick="openTeleprompter(0)" class="hover:text-charcoal transition-colors cursor-pointer">
+            Teleprompter
+          </button>
+          <a href="https://www.instagram.com/agencia.reinventa" target="_blank" rel="noopener noreferrer"
+             class="inline-flex items-center gap-1.5 bg-sage hover:bg-sageHover text-ivoryPage font-medium px-3.5 py-1.5 rounded text-xs transition-colors">
+            <span>@agencia.reinventa</span>
+            <svg class="w-3 h-3 opacity-85" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M7 7h10v10" />
+            </svg>
+          </a>
+        </nav>
+      </header>
+
+      <!-- 2. HERO MONUMENTAL -->
+      <section class="pt-9 sm:pt-12 pb-8 sm:pb-10">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 sm:mb-8">
+          <h1 class="font-display text-4xl sm:text-6xl lg:text-[68px] font-medium text-charcoal leading-[1.03]">
+            Agencia Reinventa<br />
+            <span class="font-normal">Repositorio de Guiones</span>
+          </h1>
+          <div class="md:text-right">
+            <span class="inline-block text-[11px] uppercase tracking-[0.14em] text-sage font-semibold border border-sage/30 bg-sage/5 px-3 py-1 rounded">
+              Serie 01 · Producción Activa
+            </span>
+            <p class="text-xs sm:text-sm text-slateMuted mt-2">
+              «Nunca estás verdaderamente listo, pero hay que accionar»
+            </p>
+          </div>
+        </div>
+
+        <!-- BANNER EDITORIAL HORIZONTAL ARQUITECTÓNICO -->
+        <div class="editorial-banner w-full rounded-md border border-hairline/80 p-6 sm:p-9 lg:p-11 flex flex-col sm:flex-row sm:items-end justify-between gap-6 min-h-[190px] sm:min-h-[230px]">
+          <div class="relative z-10 max-w-xl">
+            <p class="text-[11px] uppercase tracking-[0.18em] text-charcoal/75 font-medium mb-2">
+              Archivo de Grabación &amp; Dirección Creativa
+            </p>
+            <p class="font-display text-xl sm:text-2xl lg:text-[26px] text-charcoal font-medium leading-snug">
+              De la parálisis por perfeccionismo a la autoridad construida en público.
+            </p>
+          </div>
+
+          <div class="relative z-10 flex flex-wrap items-center gap-2.5 sm:justify-end">
+            <button type="button" onclick="openTeleprompter(0)"
+                    class="bg-charcoal/90 hover:bg-charcoal text-ivoryPage text-xs font-medium px-4 py-2.5 rounded transition-colors cursor-pointer flex items-center gap-2">
+              <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+              <span>Iniciar Teleprompter</span>
+            </button>
+            <button type="button" onclick="exportAllScriptsTxt()"
+                    class="bg-ivoryPage/90 hover:bg-ivoryPage text-charcoal border border-charcoal/15 text-xs font-medium px-4 py-2.5 rounded transition-colors cursor-pointer">
+              Descargar .TXT
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3. SECCIÓN DIVIDIDA EN 2 COLUMNAS (Estilo As a Psychologist | About Me + 2x2 grid) -->
+      <section id="manifiesto" class="py-8 sm:py-12 border-b border-hairline">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-0">
+
+          <!-- Columna Izquierda (65% -> 8 cols) -->
+          <div class="lg:col-span-8 lg:pr-12 flex flex-col justify-between">
+            <p class="font-display text-2xl sm:text-3xl lg:text-[34px] font-medium leading-[1.24] tracking-tight">
+              <span class="text-charcoal">Nunca estás verdaderamente listo, pero hay que accionar.</span>
+              <span class="text-midGray font-normal"> Seis piezas diseñadas para romper la parálisis por análisis, construir criterio en público y convertir la constancia en autoridad.</span>
+            </p>
+
+            <div class="mt-8 pt-6 border-t border-hairline/70 flex flex-wrap items-center justify-between gap-4 text-xs text-slateMuted">
+              <div class="flex items-center gap-2">
+                <span class="font-medium text-charcoal">Estructura narrativa:</span>
+                <span>Gancho empático → Analogía visual → Referente &amp; Libro → Cierre reflexivo</span>
+              </div>
+              <span id="headerProgressBadge" class="font-medium text-sage">0 de 6 grabados</span>
+            </div>
+          </div>
+
+          <!-- Columna Derecha (35% -> 4 cols separada por línea vertical fina) -->
+          <div id="metricas" class="lg:col-span-4 lg:pl-10 lg:border-l lg:border-hairline flex flex-col justify-between">
+            <div>
+              <h2 class="text-sm font-semibold text-charcoal tracking-tight mb-6">
+                Sobre la Serie
+              </h2>
+
+              <!-- Cuadrícula 2x2 de métricas clave -->
+              <div class="grid grid-cols-2 gap-x-6 gap-y-7">
+                <div>
+                  <div class="font-display text-3xl sm:text-[34px] font-normal text-charcoal leading-none">06</div>
+                  <p class="text-xs text-slateMuted mt-1.5 leading-relaxed">Guiones listos para grabar</p>
+                </div>
+
+                <div>
+                  <div class="font-display text-3xl sm:text-[34px] font-normal text-charcoal leading-none">~60s</div>
+                  <p class="text-xs text-slateMuted mt-1.5 leading-relaxed">Duración estimada por Reel</p>
+                </div>
+
+                <div>
+                  <div class="font-display text-3xl sm:text-[34px] font-normal text-charcoal leading-none">4</div>
+                  <p class="text-xs text-slateMuted mt-1.5 leading-relaxed">Referentes clave (Godin, Ogilvy, GaryVee, Ries)</p>
+                </div>
+
+                <div>
+                  <div class="font-display text-3xl sm:text-[34px] font-normal text-charcoal leading-none">100%</div>
+                  <p class="text-xs text-slateMuted mt-1.5 leading-relaxed">Enfoque en acción y criterio</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-7 pt-5 border-t border-hairline/70 flex items-center justify-between text-xs text-slateMuted">
+              <span>Progreso guardado localmente</span>
+              <button type="button" onclick="resetProgress()" class="underline hover:text-charcoal transition-colors cursor-pointer">
+                Reiniciar estado
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- 4. SECCIÓN 'LOS 6 GUIONES DE LA SERIE' (Grid inferior de 2 columnas + columna lateral) -->
+      <section id="guiones" class="py-10 sm:py-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-0">
+
+          <!-- Columna Izquierda: Grid de 2 columnas de tarjetas editoriales limpias (8 cols) -->
+          <div class="lg:col-span-8 lg:pr-12">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-6">
+              <div>
+                <span class="text-[11px] uppercase tracking-[0.14em] text-slateMuted font-medium">Índice de Episodios</span>
+                <h2 class="font-display text-xl sm:text-2xl font-medium text-charcoal mt-0.5">Los 6 Guiones de la Serie</h2>
+              </div>
+              <span id="filterResultLabel" class="text-xs text-slateMuted">Mostrando 6 de 6 guiones</span>
+            </div>
+
+            <!-- Contenedor de tarjetas renderizadas dinámicamente -->
+            <div id="scriptsGrid" class="grid grid-cols-1 md:grid-cols-2 border-t border-hairline">
+              <!-- JS inserta aquí las tarjetas con iconos SVG geométricos minimalistas -->
+            </div>
+
+            <!-- Estado vacío si no hay resultados con filtro -->
+            <div id="emptyFilterState" class="hidden py-12 text-center border-b border-hairline">
+              <p class="text-sm text-slateMuted">No hay guiones que coincidan con el filtro actual.</p>
+              <button type="button" onclick="setFilter('all')" class="mt-3 text-xs font-medium text-sage underline cursor-pointer">
+                Ver todos los guiones
+              </button>
+            </div>
+          </div>
+
+          <!-- Columna Derecha Lateral: Guía de Grabación & Filtros (4 cols con borde izquierdo) -->
+          <aside class="lg:col-span-4 lg:pl-10 lg:border-l lg:border-hairline flex flex-col justify-between">
+            <div class="space-y-7">
+              <div>
+                <h3 class="font-display text-lg font-medium text-charcoal mb-2">
+                  Guía de Grabación &amp; Filtros
+                </h3>
+                <p class="text-xs sm:text-[13px] text-slateMuted leading-relaxed">
+                  Graba en bloques de 2 o 3 piezas usando luz natural. No busques perfección técnica en la primera toma; prioriza mirada firme a cámara, ritmo conversacional y claridad en la pregunta final.
+                </p>
+              </div>
+
+              <!-- Barra de progreso de grabación -->
+              <div class="bg-ivorySubtle/80 border border-hairline rounded p-4">
+                <div class="flex items-center justify-between text-xs mb-2">
+                  <span class="font-medium text-charcoal">Avance de grabación</span>
+                  <span id="sidebarProgressText" class="font-semibold text-sage">0 / 6 (0%)</span>
+                </div>
+                <div class="w-full h-1.5 bg-hairline/70 rounded-full overflow-hidden">
+                  <div id="sidebarProgressBar" class="h-full bg-sage transition-all duration-300 rounded-full" style="width: 0%"></div>
+                </div>
+                <p class="text-[11px] text-slateMuted mt-2.5">
+                  Marca cada Reel conforme lo vayas grabando para llevar control directo en este navegador.
+                </p>
+              </div>
+
+              <!-- Buscador rápido -->
+              <div>
+                <label for="searchInput" class="block text-[11px] uppercase tracking-[0.12em] text-slateMuted font-medium mb-2">
+                  Buscar por tema, autor o palabra
+                </label>
+                <div class="relative">
+                  <input id="searchInput" type="text" placeholder="Ej. Godin, Ogilvy, equipo, frecuencia..."
+                         oninput="handleSearch(this.value)"
+                         class="w-full bg-ivorySubtle/60 border border-hairline rounded px-3.5 py-2 text-xs text-charcoal placeholder:text-midGray focus:outline-none focus:border-sage transition-colors" />
+                  <button id="clearSearchBtn" type="button" onclick="clearSearch()"
+                          class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-slateMuted hover:text-charcoal cursor-pointer">
+                    ✕
+                  </button>
+                </div>
+              </div>
+
+              <!-- Filtros por estado -->
+              <div>
+                <span class="block text-[11px] uppercase tracking-[0.12em] text-slateMuted font-medium mb-2">
+                  Filtrar por estado
+                </span>
+                <div class="grid grid-cols-3 gap-1.5 bg-ivorySubtle p-1 rounded border border-hairline">
+                  <button type="button" data-filter="all" onclick="setFilter('all')"
+                          class="filter-btn active-filter text-xs py-1.5 px-2 rounded font-medium transition-colors cursor-pointer bg-sage text-ivoryPage">
+                    Todos (6)
+                  </button>
+                  <button type="button" data-filter="pending" onclick="setFilter('pending')"
+                          class="filter-btn text-xs py-1.5 px-2 rounded font-medium transition-colors cursor-pointer text-slateMuted hover:text-charcoal">
+                    Pendientes
+                  </button>
+                  <button type="button" data-filter="recorded" onclick="setFilter('recorded')"
+                          class="filter-btn text-xs py-1.5 px-2 rounded font-medium transition-colors cursor-pointer text-slateMuted hover:text-charcoal">
+                    Grabados
+                  </button>
+                </div>
+              </div>
+
+              <!-- Lista rápida de referentes de la serie -->
+              <div class="pt-4 border-t border-hairline">
+                <span class="block text-[11px] uppercase tracking-[0.12em] text-slateMuted font-medium mb-3">
+                  Bibliografía citada en la serie
+                </span>
+                <ul class="space-y-2 text-xs text-slateMuted">
+                  <li class="flex items-start gap-2">
+                    <span class="text-sage font-semibold">01.</span>
+                    <span><strong class="text-charcoal font-medium">Seth Godin</strong> — El marketing del permiso / La vaca púrpura / The Dip / Poke the Box</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-sage font-semibold">02.</span>
+                    <span><strong class="text-charcoal font-medium">David Ogilvy</strong> — Confesiones de un publicitario</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-sage font-semibold">03.</span>
+                    <span><strong class="text-charcoal font-medium">Gary Vaynerchuk</strong> — Jab, Jab, Jab, Right Hook</span>
+                  </li>
+                  <li class="flex items-start gap-2">
+                    <span class="text-sage font-semibold">04.</span>
+                    <span><strong class="text-charcoal font-medium">Eric Ries</strong> — El método Lean Startup</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Botón de acción principal al pie de la columna lateral (estilo 'Book a session' de la referencia) -->
+            <div class="mt-8 pt-6 border-t border-hairline space-y-2.5">
+              <button type="button" onclick="openTeleprompter(0)"
+                      class="w-full bg-sage hover:bg-sageHover text-ivoryPage font-medium text-xs sm:text-[13px] py-3 px-4 rounded transition-colors cursor-pointer flex items-center justify-center gap-2">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+                  <rect x="3" y="4" width="18" height="14" rx="2" />
+                  <path d="M8 21h8M12 18v3M7 9h10M7 13h6" />
+                </svg>
+                <span>Abrir Teleprompter Continuo</span>
+              </button>
+              <button type="button" onclick="copyAllScripts()"
+                      class="w-full bg-transparent hover:bg-ivorySubtle text-charcoal border border-hairline font-medium text-xs py-2.5 px-4 rounded transition-colors cursor-pointer">
+                Copiar los 6 guiones al portapapeles
+              </button>
+            </div>
+          </aside>
+
+        </div>
+      </section>
+
+      <!-- 5. FOOTER MINIMALISTA -->
+      <footer class="pt-6 pb-2 border-t border-hairline flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-xs text-slateMuted">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
+          <span class="font-medium text-charcoal">Agencia Reinventa</span>
+          <span>·</span>
+          <span>Serie Editorial 01: «Nunca estás verdaderamente listo, pero hay que accionar»</span>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="https://agencireinventa.online" target="_blank" rel="noopener noreferrer" class="hover:text-charcoal underline underline-offset-4 transition-colors">
+            agencireinventa.online
+          </a>
+          <a href="https://www.instagram.com/agencia.reinventa" target="_blank" rel="noopener noreferrer" class="hover:text-charcoal underline underline-offset-4 transition-colors">
+            @agencia.reinventa
+          </a>
+          <button type="button" onclick="exportAllScriptsTxt()" class="text-sage hover:text-sageHover font-medium underline underline-offset-4 transition-colors cursor-pointer">
+            Exportar respaldo (.txt)
+          </button>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 1: VISOR EDITORIAL DE GUION ESTRUCTURADO POR BLOQUES             -->
+  <!-- ===================================================================== -->
+  <div id="scriptModal" class="fixed inset-0 z-40 hidden bg-charcoal/60 backdrop-blur-[2px] flex items-center justify-center p-3 sm:p-6 overflow-y-auto" onclick="handleModalBackdropClick(event)">
+    <div class="bg-ivoryPage border border-hairline rounded-md max-w-3xl w-full shadow-2xl overflow-hidden my-auto animate-fade-up" onclick="event.stopPropagation()">
+
+      <!-- Cabecera del Modal -->
+      <div class="px-6 sm:px-8 py-5 border-b border-hairline flex items-start justify-between gap-4 bg-ivorySubtle/60">
+        <div>
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span id="modalReelBadge" class="text-[11px] uppercase tracking-[0.14em] font-semibold text-sage">REEL 01</span>
+            <span class="text-hairline">•</span>
+            <span id="modalPillarBadge" class="text-xs text-slateMuted font-medium">Conexión</span>
+            <span class="text-hairline">•</span>
+            <span id="modalStatsBadge" class="text-[11px] text-slateMuted">~175 palabras · ~60s</span>
+          </div>
+          <h3 id="modalTitle" class="font-display text-xl sm:text-2xl font-medium text-charcoal">
+            El mito del equipo perfecto
+          </h3>
+        </div>
+        <button type="button" onclick="closeScriptModal()" aria-label="Cerrar modal"
+                class="text-slateMuted hover:text-charcoal p-1.5 rounded hover:bg-hairline/30 transition-colors cursor-pointer">
+          ✕
+        </button>
+      </div>
+
+      <!-- Pestañas de Vista: Estructurado por Bloques vs Texto Íntegro vs Copy & Hashtags -->
+      <div class="px-6 sm:px-8 pt-4 border-b border-hairline flex flex-wrap items-center justify-between gap-3 bg-ivoryPage">
+        <div class="flex flex-wrap items-center gap-4 sm:gap-5 text-xs">
+          <button type="button" id="tabStructured" onclick="switchModalView('structured')"
+                  class="pb-3 border-b-2 border-sage text-charcoal font-semibold cursor-pointer transition-colors">
+            Estructura (4 bloques)
+          </button>
+          <button type="button" id="tabFullText" onclick="switchModalView('full')"
+                  class="pb-3 border-b-2 border-transparent text-slateMuted hover:text-charcoal font-medium cursor-pointer transition-colors">
+            Texto íntegro
+          </button>
+          <button type="button" id="tabSocialCopy" onclick="switchModalView('social')"
+                  class="pb-3 border-b-2 border-transparent text-slateMuted hover:text-charcoal font-medium cursor-pointer transition-colors flex items-center gap-1.5">
+            <span>Copy &amp; Hashtags</span>
+            <span class="w-1.5 h-1.5 rounded-full bg-sage"></span>
+          </button>
+        </div>
+
+        <label class="inline-flex items-center gap-2 pb-3 cursor-pointer select-none text-xs">
+          <input type="checkbox" id="modalRecordedCheckbox" onchange="toggleRecordedFromModal()"
+                 class="w-4 h-4 accent-[#52634F] rounded cursor-pointer" />
+          <span id="modalRecordedLabel" class="font-medium text-slateMuted">Marcar como grabado</span>
+        </label>
+      </div>
+
+      <!-- Cuerpo del Modal -->
+      <div class="px-6 sm:px-8 py-6 max-h-[62vh] overflow-y-auto">
+        <!-- Vista 1: por Bloques -->
+        <div id="structuredBlocksContainer" class="space-y-4">
+          <!-- Renderizado dinámico por JS -->
+        </div>
+
+        <!-- Vista 2: Texto Íntegro -->
+        <div id="fullTextContainer" class="hidden">
+          <div class="bg-ivorySubtle/70 border border-hairline rounded p-5 sm:p-6">
+            <p id="modalFullTextContent" class="text-sm sm:text-[15px] text-charcoal leading-[1.8] font-normal">
+            </p>
+          </div>
+        </div>
+
+        <!-- Vista 3: Copy (Portada + Descripción) & Hashtags -->
+        <div id="socialCopyContainer" class="hidden space-y-5">
+          <!-- Texto de Portada -->
+          <div class="border border-hairline bg-ivorySubtle/55 rounded p-4 sm:p-5">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+              <span class="text-[11px] uppercase tracking-[0.12em] font-semibold text-sage">Texto de Portada (Miniatura / Cover)</span>
+              <button type="button" onclick="copyModalCoverText()"
+                      class="px-2.5 py-1 text-[11px] font-medium text-charcoal bg-ivoryPage border border-hairline rounded hover:bg-ivorySubtle transition-colors cursor-pointer">
+                Copiar Texto de Portada
+              </button>
+            </div>
+            <p id="modalCoverText" class="font-display text-base sm:text-lg font-medium text-charcoal"></p>
+          </div>
+
+          <!-- Descripción / Caption -->
+          <div class="border border-hairline bg-ivorySubtle/55 rounded p-4 sm:p-5">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+              <span class="text-[11px] uppercase tracking-[0.12em] font-semibold text-sage">Copy / Descripción para Instagram</span>
+              <button type="button" onclick="copyModalCaption()"
+                      class="px-2.5 py-1 text-[11px] font-medium text-charcoal bg-ivoryPage border border-hairline rounded hover:bg-ivorySubtle transition-colors cursor-pointer">
+                Copiar Copy (Descripción)
+              </button>
+            </div>
+            <div id="modalCaptionText" class="text-sm text-charcoal leading-[1.7] whitespace-pre-line"></div>
+          </div>
+
+          <!-- Hashtags -->
+          <div class="border border-hairline bg-ivorySubtle/55 rounded p-4 sm:p-5">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+              <span class="text-[11px] uppercase tracking-[0.12em] font-semibold text-sage">Hashtags Estratégicos</span>
+              <button type="button" onclick="copyModalHashtags()"
+                      class="px-2.5 py-1 text-[11px] font-medium text-charcoal bg-ivoryPage border border-hairline rounded hover:bg-ivorySubtle transition-colors cursor-pointer">
+                Copiar Hashtags
+              </button>
+            </div>
+            <p id="modalHashtagsText" class="text-xs sm:text-[13px] font-medium text-sage leading-relaxed break-words"></p>
+          </div>
+
+          <!-- Acción Combinada Post Completo -->
+          <div class="pt-1 flex justify-end">
+            <button type="button" onclick="copyModalFullPost()"
+                    class="w-full sm:w-auto px-4 py-2.5 text-xs font-semibold text-ivoryPage bg-sage hover:bg-sageHover rounded transition-colors cursor-pointer flex items-center justify-center gap-2">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <rect x="9" y="9" width="13" height="13" rx="2" />
+                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+              </svg>
+              <span>Copiar Post Completo (Descripción + Hashtags)</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barra de acciones del Modal -->
+      <div class="px-6 sm:px-8 py-4 border-t border-hairline bg-ivorySubtle/60 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <button type="button" id="modalPrevBtn" onclick="navigateModal(-1)"
+                  class="px-3 py-2 text-xs font-medium text-charcoal bg-ivoryPage border border-hairline rounded hover:bg-ivorySubtle transition-colors cursor-pointer disabled:opacity-40">
+            ← Anterior
+          </button>
+          <button type="button" id="modalNextBtn" onclick="navigateModal(1)"
+                  class="px-3 py-2 text-xs font-medium text-charcoal bg-ivoryPage border border-hairline rounded hover:bg-ivorySubtle transition-colors cursor-pointer disabled:opacity-40">
+            Siguiente →
+          </button>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Botón Descargar Video · Drive + Configurar enlace -->
+          <div class="inline-flex items-center rounded border border-hairline bg-ivoryPage overflow-hidden">
+            <button type="button" id="modalDriveDownloadBtn" onclick="handleModalDriveAction()"
+                    class="px-3.5 py-2 text-xs font-medium text-charcoal hover:bg-ivorySubtle transition-colors cursor-pointer flex items-center gap-1.5">
+              <svg class="w-3.5 h-3.5 text-sage" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+              </svg>
+              <span id="modalDriveBtnLabel">Descargar video · Drive</span>
+            </button>
+            <button type="button" onclick="openDriveLinkModal(REELS_DATA[activeModalIndex].id)"
+                    title="Configurar o editar enlace de Google Drive"
+                    class="px-2.5 py-2 text-xs text-slateMuted hover:text-charcoal hover:bg-ivorySubtle border-l border-hairline transition-colors cursor-pointer">
+              ✎
+            </button>
+          </div>
+
+          <button type="button" onclick="copyCurrentModalScript()"
+                  class="px-3.5 py-2 text-xs font-medium text-charcoal bg-ivoryPage border border-hairline rounded hover:bg-ivorySubtle transition-colors cursor-pointer flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5 text-slateMuted" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+              <rect x="9" y="9" width="13" height="13" rx="2" />
+              <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+            </svg>
+            <span id="modalCopyScriptLabel">Copiar guion</span>
+          </button>
+
+          <button type="button" onclick="launchTeleprompterFromModal()"
+                  class="px-3.5 py-2 text-xs font-medium text-ivoryPage bg-sage hover:bg-sageHover rounded transition-colors cursor-pointer flex items-center gap-1.5">
+            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <span>Teleprompter</span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- MODAL 1B: CONFIGURACIÓN RÁPIDA DE ENLACE DE GOOGLE DRIVE              -->
+  <!-- ===================================================================== -->
+  <div id="driveLinkModal" class="fixed inset-0 z-50 hidden bg-charcoal/60 backdrop-blur-[2px] flex items-center justify-center p-4" onclick="if(event.target.id==='driveLinkModal') closeDriveLinkModal()">
+    <div class="bg-ivoryPage border border-hairline rounded-md max-w-lg w-full shadow-2xl p-6 animate-fade-up" onclick="event.stopPropagation()">
+      <div class="flex items-start justify-between gap-3 mb-4">
+        <div>
+          <span id="driveModalReelTag" class="text-[11px] uppercase tracking-[0.14em] font-semibold text-sage">REEL 01</span>
+          <h4 id="driveModalTitle" class="font-display text-lg font-medium text-charcoal mt-0.5">Enlace de Video en Google Drive</h4>
+        </div>
+        <button type="button" onclick="closeDriveLinkModal()" class="text-slateMuted hover:text-charcoal p-1 cursor-pointer">✕</button>
+      </div>
+
+      <p class="text-xs text-slateMuted leading-relaxed mb-4">
+        Pega aquí la URL compartida de Google Drive para descargar o visualizar el video grabado de este episodio. Se guardará localmente en tu navegador (también puedes fijarla en la constante <code class="bg-ivorySubtle px-1.5 py-0.5 rounded text-charcoal">DRIVE_LINKS</code> del código fuente antes de subir a GitHub Pages).
+      </p>
+
+      <label for="driveUrlInput" class="block text-[11px] uppercase tracking-[0.12em] font-medium text-slateMuted mb-1.5">
+        URL de Google Drive
+      </label>
+      <input id="driveUrlInput" type="url" placeholder="https://drive.google.com/file/d/..."
+             class="w-full bg-ivorySubtle/70 border border-hairline rounded px-3.5 py-2.5 text-xs text-charcoal placeholder:text-midGray focus:outline-none focus:border-sage mb-5" />
+
+      <div class="flex flex-wrap items-center justify-between gap-2">
+        <button type="button" onclick="clearCurrentDriveLink()"
+                class="text-xs text-slateMuted hover:text-red-700 underline underline-offset-4 cursor-pointer">
+          Quitar enlace
+        </button>
+
+        <div class="flex items-center gap-2">
+          <button type="button" onclick="closeDriveLinkModal()"
+                  class="px-3.5 py-2 text-xs font-medium text-charcoal bg-ivorySubtle border border-hairline rounded hover:bg-hairline/40 cursor-pointer">
+            Cancelar
+          </button>
+          <button type="button" onclick="saveDriveLinkFromModal()"
+                  class="px-4 py-2 text-xs font-medium text-ivoryPage bg-sage hover:bg-sageHover rounded cursor-pointer">
+            Guardar enlace Drive
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================================================================== -->
+  <!-- OVERLAY 2: MODO TELEPROMPTER DE ALTO CONTRASTE                        -->
+  <!-- ===================================================================== -->
+  <div id="teleprompterOverlay" class="fixed inset-0 z-50 hidden bg-[#141413] text-[#F2F1EC] flex flex-col">
+
+    <!-- Barra superior de control del Teleprompter -->
+    <div class="px-4 sm:px-8 py-3.5 border-b border-white/10 bg-[#1B1B19] flex flex-wrap items-center justify-between gap-3">
+      <div class="flex flex-wrap items-center gap-3">
+        <span class="inline-block w-2 h-2 rounded-full bg-[#7E9679]"></span>
+        <span id="tpHeaderLabel" class="text-xs sm:text-sm font-medium text-[#F2F1EC]">
+          Reel 1 · El mito del equipo perfecto
+        </span>
+        <select id="tpReelSelector" onchange="selectTeleprompterReel(this.value)" aria-label="Seleccionar Reel para Teleprompter"
+                class="bg-[#262623] text-[#F2F1EC] border border-white/15 rounded px-2.5 py-1 text-xs focus:outline-none focus:border-[#7E9679] cursor-pointer">
+        </select>
+      </div>
+
+      <!-- Cronómetro + Cerrar -->
+      <div class="flex items-center gap-4">
+        <div class="flex items-center gap-1.5 text-xs font-mono text-[#C8C6BE] bg-white/5 px-3 py-1 rounded border border-white/10">
+          <span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>
+          <span id="tpTimerDisplay">00:00</span>
+        </div>
+        <button type="button" onclick="closeTeleprompter()"
+                class="text-xs font-medium text-[#C8C6BE] hover:text-white bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-1.5 rounded transition-colors cursor-pointer">
+          Salir (ESC)
+        </button>
+      </div>
+    </div>
+
+    <!-- Controles centrales: Play/Pausa, Velocidad, Tamaño Fuente, Espejo, Reiniciar -->
+    <div class="px-4 sm:px-8 py-3 border-b border-white/10 bg-[#171715] flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-xs">
+      <button type="button" id="tpPlayPauseBtn" onclick="toggleTeleprompterPlay()"
+              class="bg-sage hover:bg-sageHover text-ivoryPage font-semibold px-4 py-1.5 rounded flex items-center gap-1.5 transition-colors cursor-pointer">
+        <span id="tpPlayIcon">▶ Iniciar</span>
+      </button>
+
+      <button type="button" onclick="resetTeleprompterScroll()"
+              class="bg-white/5 hover:bg-white/10 text-[#E5E3DC] border border-white/10 px-3 py-1.5 rounded transition-colors cursor-pointer">
+        ↺ Reiniciar
+      </button>
+
+      <!-- Velocidad -->
+      <div class="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded px-2.5 py-1">
+        <span class="text-[#A8A69E]">Velocidad:</span>
+        <button type="button" onclick="changeTpSpeed(-0.15)" class="px-1.5 py-0.5 hover:bg-white/10 rounded cursor-pointer font-bold">−</button>
+        <span id="tpSpeedDisplay" class="font-mono font-semibold text-[#F2F1EC] min-w-[38px] text-center">1.0x</span>
+        <button type="button" onclick="changeTpSpeed(0.15)" class="px-1.5 py-0.5 hover:bg-white/10 rounded cursor-pointer font-bold">+</button>
+      </div>
+
+      <!-- Tamaño de letra -->
+      <div class="flex items-center gap-1.5 bg-white/5 border border-white/10 rounded px-2.5 py-1">
+        <span class="text-[#A8A69E]">Letra:</span>
+        <button type="button" onclick="changeTpFontSize(-2)" class="px-1.5 py-0.5 hover:bg-white/10 rounded cursor-pointer font-bold">A−</button>
+        <span id="tpFontDisplay" class="font-mono font-semibold text-[#F2F1EC] min-w-[28px] text-center">34</span>
+        <button type="button" onclick="changeTpFontSize(2)" class="px-1.5 py-0.5 hover:bg-white/10 rounded cursor-pointer font-bold">A+</button>
+      </div>
+
+      <!-- Espejo -->
+      <button type="button" id="tpMirrorBtn" onclick="toggleTpMirror()"
+              class="bg-white/5 hover:bg-white/10 text-[#A8A69E] border border-white/10 px-3 py-1.5 rounded transition-colors cursor-pointer">
+        ⇄ Espejo
+      </button>
+
+      <!-- Marcar grabado desde Teleprompter -->
+      <button type="button" onclick="markCurrentTpRecorded()"
+              class="bg-white/5 hover:bg-white/10 text-[#9AB895] border border-[#7E9679]/30 px-3 py-1.5 rounded transition-colors cursor-pointer">
+        ✓ Marcar grabado
+      </button>
+    </div>
+
+    <!-- Área de desplazamiento del guion con línea guía ocular -->
+    <div class="relative flex-1 overflow-hidden">
+      <!-- Línea guía horizontal sutil a la altura de la lente -->
+      <div class="pointer-events-none absolute inset-x-0 top-[28%] z-10 border-y border-[#7E9679]/25 bg-[#7E9679]/[0.04] h-16 flex items-center justify-between px-4 sm:px-10">
+        <span class="text-[10px] uppercase tracking-[0.2em] text-[#7E9679]/75 font-mono">Línea de lectura</span>
+        <span class="text-[10px] uppercase tracking-[0.2em] text-[#7E9679]/75 font-mono hidden sm:inline">Mirada a cámara</span>
+      </div>
+
+      <!-- Degradados superior e inferior para lectura fluida -->
+      <div class="pointer-events-none absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-[#141413] to-transparent z-10"></div>
+      <div class="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-[#141413] to-transparent z-10"></div>
+
+      <!-- Contenedor scrollable -->
+      <div id="tpScrollContainer" class="h-full overflow-y-auto px-6 sm:px-14 md:px-24 lg:px-36 pt-[24vh] pb-[65vh] scroll-smooth">
+        <div id="tpTextWrapper" class="max-w-4xl mx-auto transition-transform duration-200">
+          <p id="tpScriptBody" class="font-display font-normal text-[#F2F1EC] leading-[1.55] tracking-tight" style="font-size: 34px;">
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pie del Teleprompter -->
+    <div class="px-4 sm:px-8 py-2.5 border-t border-white/10 bg-[#1B1B19] flex flex-wrap items-center justify-between gap-2 text-[11px] text-[#8E8C84]">
+      <span>Atajo: <strong class="text-[#C8C6BE]">Espacio</strong> para Iniciar/Pausar · <strong class="text-[#C8C6BE]">ESC</strong> para salir</span>
+      <button type="button" onclick="nextTeleprompterReel()" class="text-[#9AB895] hover:underline cursor-pointer font-medium">
+        Siguiente guion de la serie →
+      </button>
+    </div>
+  </div>
+
+  <!-- NOTIFICACIÓN TOAST ELEGANTE -->
+  <div id="toastContainer" class="fixed bottom-5 right-5 z-50 pointer-events-none flex flex-col gap-2"></div>
+
+  <script>
+    // =========================================================================
+    // 0. CONSTANTE DE ENLACES DE GOOGLE DRIVE (Fíjalos aquí para GitHub Pages)
+    // =========================================================================
+    const DRIVE_LINKS = {
+      1: "", // Pega aquí el link de Google Drive del Reel 1
+      2: "", // Pega aquí el link de Google Drive del Reel 2
+      3: "", // Pega aquí el link de Google Drive del Reel 3
+      4: "", // Pega aquí el link de Google Drive del Reel 4
+      5: "", // Pega aquí el link de Google Drive del Reel 5
+      6: ""  // Pega aquí el link de Google Drive del Reel 6
+    };
+
+    // =========================================================================
+    // 1. BASE DE DATOS DE LOS 6 GUIONES + COPY + HASHTAGS (TEXTOS ÍNTEGROS)
+    // =========================================================================
+    const REELS_DATA = [
+      {
+        id: 1,
+        number: "Reel 1",
+        title: "El mito del equipo perfecto",
+        pillar: "Conexión",
+        referenceAuthor: "Seth Godin",
+        referenceBooks: "El marketing del permiso / La vaca púrpura",
+        coverText: "Tu cámara no cierra ventas",
+        caption: `Postergar tu contenido hasta tener la luz perfecta, el micrófono ideal o un estudio montado es una forma elegante de evitar salir a conversar con tu mercado.\n\nComo plantea Seth Godin en El marketing del permiso, la confianza no se compra con producción; se construye con relevancia y vínculo humano.\n\nSi hoy tienes un teléfono en la mano y una idea clara, ¿qué excusa es la que realmente te está deteniendo? Te leo en los comentarios.`,
+        hashtags: "#CreacionDeContenido #MarketingDigital #Emprendedores #MarcaPersonal #EstrategiaDeContenidos",
+        iconSvg: `
+          <svg class="w-8 h-8 text-charcoal/80" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.15">
+            <circle cx="14" cy="18" r="8.5" />
+            <circle cx="22" cy="18" r="8.5" />
+          </svg>
+        `,
+        text: `Si estás posponiendo grabar porque tu teléfono no tiene la mejor cámara o porque hoy no tienes un estudio bien iluminado, es comprensible que sientas que tu marca se va a ver poco profesional; pero aquí te muestro por qué lo que realmente cierra ventas no es la resolución del video, sino la conexión. Imagina que entras a una tienda donde todo brilla y la iluminación es impecable, pero nadie te mira a los ojos y todos repiten un discurso de memoria. Ahora imagina entrar a un lugar sencillo, con luz natural, donde alguien te escucha y te dice exactamente lo que necesitas resolver hoy. Seth Godin —uno de los pensadores de marketing más influyentes de la era digital y pionero del marketing de permiso— lo ha repetido por años: la gente no compra productos, compra relaciones, historias y cambios de estado. Si quieres profundizar en esta mirada, te recomiendo El marketing del permiso o La vaca púrpura. Cuando esperas el equipo ideal, postergas el vínculo humano que de verdad mueve la aguja. Si hoy tienes un teléfono y una idea honesta, ¿qué es lo que realmente te está frenando?`,
+        blocks: {
+          gancho: "Si estás posponiendo grabar porque tu teléfono no tiene la mejor cámara o porque hoy no tienes un estudio bien iluminado, es comprensible que sientas que tu marca se va a ver poco profesional; pero aquí te muestro por qué lo que realmente cierra ventas no es la resolución del video, sino la conexión.",
+          desarrollo: "Imagina que entras a una tienda donde todo brilla y la iluminación es impecable, pero nadie te mira a los ojos y todos repiten un discurso de memoria. Ahora imagina entrar a un lugar sencillo, con luz natural, donde alguien te escucha y te dice exactamente lo que necesitas resolver hoy.",
+          autoridad: "Seth Godin —uno de los pensadores de marketing más influyentes de la era digital y pionero del marketing de permiso— lo ha repetido por años: la gente no compra productos, compra relaciones, historias y cambios de estado. Si quieres profundizar en esta mirada, te recomiendo El marketing del permiso o La vaca púrpura.",
+          cierre: "Cuando esperas el equipo ideal, postergas el vínculo humano que de verdad mueve la aguja. Si hoy tienes un teléfono y una idea honesta, ¿qué es lo que realmente te está frenando?"
+        }
+      },
+      {
+        id: 2,
+        number: "Reel 2",
+        title: "La trampa de la vieja escuela",
+        pillar: "Pertinencia",
+        referenceAuthor: "David Ogilvy",
+        referenceBooks: "Confesiones de un publicitario",
+        coverText: "Deja de publicar folletos",
+        caption: `Subir diseños corporativos fríos hablando solo de lo bueno que es tu servicio es el equivalente digital a repartir volantes en un semáforo.\n\nDavid Ogilvy lo dejó claro en Confesiones de un publicitario: al cliente hay que hablarle con inteligencia y desde lo que le importa hoy, no desde nuestro ego de marca.\n\nRevisa tus últimas publicaciones y dime con honestidad: ¿están diseñadas para lucir bien o para responder una duda real de tu cliente?`,
+        hashtags: "#EstrategiaDigital #MarketingDeContenidos #VentasDigitales #PosicionamientoDeMarca #NegociosDigitales",
+        iconSvg: `
+          <svg class="w-8 h-8 text-charcoal/80" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.15">
+            <rect x="7" y="7" width="22" height="22" />
+            <rect x="11" y="11" width="14" height="14" />
+            <rect x="15" y="15" width="6" height="6" />
+          </svg>
+        `,
+        text: `Si sientes que para salir en redes necesitas primero un diseño corporativo impecable o una campaña muy producida porque te preocupa perder seriedad frente a tus clientes, esa cautela tiene sentido; pero hoy te explico por qué ese enfoque tradicional te vuelve invisible y cómo la pertinencia te da ventaja desde el primer día. Piensa en cuando recibes un folleto en la calle que solo grita "somos los mejores, cómpranos ya", justo cuando vas apurado y pensando en otra cosa. Eso es hacer redes a la vieja escuela: hablar de ti sin mirar lo que la otra persona necesita en ese momento. David Ogilvy —conocido como el padre de la publicidad moderna y fundador de Ogilvy & Mather— decía que el consumidor no es tonto, y que hay que hablarle de lo que le importa. Su clásico Confesiones de un publicitario sigue siendo una lectura obligada para entender cómo escribir y comunicar con respeto e inteligencia. La pertinencia no es producir más caro, es responder a la duda que ronda la cabeza de tu cliente antes de que abra su cartera. Si revisaras tus últimas diez publicaciones como si fueras tu propio cliente, ¿cuántas dirías que llegan en el momento exacto?`,
+        blocks: {
+          gancho: "Si sientes que para salir en redes necesitas primero un diseño corporativo impecable o una campaña muy producida porque te preocupa perder seriedad frente a tus clientes, esa cautela tiene sentido; pero hoy te explico por qué ese enfoque tradicional te vuelve invisible y cómo la pertinencia te da ventaja desde el primer día.",
+          desarrollo: "Piensa en cuando recibes un folleto en la calle que solo grita \"somos los mejores, cómpranos ya\", justo cuando vas apurado y pensando en otra cosa. Eso es hacer redes a la vieja escuela: hablar de ti sin mirar lo que la otra persona necesita en ese momento.",
+          autoridad: "David Ogilvy —conocido como el padre de la publicidad moderna y fundador de Ogilvy & Mather— decía que el consumidor no es tonto, y que hay que hablarle de lo que le importa. Su clásico Confesiones de un publicitario sigue siendo una lectura obligada para entender cómo escribir y comunicar con respeto e inteligencia.",
+          cierre: "La pertinencia no es producir más caro, es responder a la duda que ronda la cabeza de tu cliente antes de que abra su cartera. Si revisaras tus últimas diez publicaciones como si fueras tu propio cliente, ¿cuántas dirías que llegan en el momento exacto?"
+        }
+      },
+      {
+        id: 3,
+        number: "Reel 3",
+        title: "Volumen y autoridad",
+        pillar: "Autoridad",
+        referenceAuthor: "Gary Vaynerchuk",
+        referenceBooks: "Jab, Jab, Jab, Right Hook",
+        coverText: "Un video viral no basta",
+        caption: `Esperar a tener "la pieza maestra" antes de publicar solo retrasa el momento en que tu audiencia empieza a reconocerte como referencia en tu industria.\n\nLa autoridad digital se acumula con criterio repetido en público. Gary Vaynerchuk lo resume muy bien en Jab, Jab, Jab, Right Hook: aporta valor constante antes de pedir la venta.\n\nGuarda este video para recordarlo la próxima vez que dudes en subir una idea útil por sentirla "demasiado simple".`,
+        hashtags: "#AutoridadDigital #MarcaPersonal #MarketingParaNegocios #CrecimientoDeMarca #EstrategiaDeMarketing",
+        iconSvg: `
+          <svg class="w-8 h-8 text-charcoal/80" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.15">
+            <circle cx="18" cy="18" r="11" />
+            <circle cx="18" cy="18" r="7.5" />
+            <circle cx="18" cy="18" r="4" />
+            <circle cx="18" cy="18" r="1" fill="currentColor" />
+          </svg>
+        `,
+        text: `Si te frena la idea de publicar hasta que tengas una pieza magistral porque temes decir algo incompleto o quedar mal frente a colegas, esa exigencia es normal; pero aquí está la razón por la que la autoridad digital no nace de un solo video perfecto, sino del volumen con criterio. Piensa en dos médicos o dos asesores: uno aparece una vez cada mes con una frase brillante, y el otro explica con claridad todas las semanas cómo funciona el proceso, qué errores evitar y qué decisiones tomar. ¿A quién sientes más sólido cuando llega el momento de pagar? La autoridad no se decreta con una bio bonita ni con un golpe de suerte; se acumula con constancia útil. Como señala Gary Vaynerchuk —emprendedor, director de VaynerMedia y referente en marketing de contenidos y redes sociales— sobre documentar en lugar de sobreproducir, cada pieza clara es una prueba de oficio en público. Si te interesa su enfoque práctico sobre cómo contar historias en plataformas sociales, Jab, Jab, Jab, Right Hook es un buen punto de partida. Cuando alguien entra a tu perfil por primera vez, ¿encuentra un archivo vivo de tu criterio o apenas un destello aislado?`,
+        blocks: {
+          gancho: "Si te frena la idea de publicar hasta que tengas una pieza magistral porque temes decir algo incompleto o quedar mal frente a colegas, esa exigencia es normal; pero aquí está la razón por la que la autoridad digital no nace de un solo video perfecto, sino del volumen con criterio.",
+          desarrollo: "Piensa en dos médicos o dos asesores: uno aparece una vez cada mes con una frase brillante, y el otro explica con claridad todas las semanas cómo funciona el proceso, qué errores evitar y qué decisiones tomar. ¿A quién sientes más sólido cuando llega el momento de pagar? La autoridad no se decreta con una bio bonita ni con un golpe de suerte; se acumula con constancia útil.",
+          autoridad: "Como señala Gary Vaynerchuk —emprendedor, director de VaynerMedia y referente en marketing de contenidos y redes sociales— sobre documentar en lugar de sobreproducir, cada pieza clara es una prueba de oficio en público. Si te interesa su enfoque práctico sobre cómo contar historias en plataformas sociales, Jab, Jab, Jab, Right Hook es un buen punto de partida.",
+          cierre: "Cuando alguien entra a tu perfil por primera vez, ¿encuentra un archivo vivo de tu criterio o apenas un destello aislado?"
+        }
+      },
+      {
+        id: 4,
+        number: "Reel 4",
+        title: "Frecuencia y memoria",
+        pillar: "Frecuencia",
+        referenceAuthor: "Seth Godin",
+        referenceBooks: "The Dip / Poke the Box",
+        coverText: "El costo de desaparecer",
+        caption: `Cuando publicas solo cuando te sobra tiempo, cada video nuevo tiene que remar contra el olvido de tu audiencia.\n\nSostener un ritmo realista es más rentable que desaparecer tres semanas y volver con una mega producción. Si quieres profundizar en cómo mantener el impulso sin quemarte, dale un vistazo a The Dip de Seth Godin.\n\n¿Cuántas publicaciones a la semana puedes sostener hoy sin descuidar tu operación? Compártelo abajo.`,
+        hashtags: "#RedesSocialesParaNegocios #ConstanciaDigital #MarketingEnRedesSociales #CrecimientoOrganico #EstrategiaDeRedes",
+        iconSvg: `
+          <svg class="w-8 h-8 text-charcoal/80" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.15">
+            <circle cx="18" cy="14" r="6.5" />
+            <circle cx="14" cy="21" r="6.5" />
+            <circle cx="22" cy="21" r="6.5" />
+          </svg>
+        `,
+        text: `Si llevas semanas sin subir nada porque tu operación diaria te absorbe y sientes que sin tiempo libre es imposible mantener una cuenta activa, es una traba muy real; pero te muestro cómo resolverlo sin quemarte usando la frecuencia estratégica a tu favor. Imagina que vas a una cafetería que te encanta, pero solo abre tres días al mes sin avisar. Por buena que sea, vas a terminar yendo a otro lado. En redes pasa lo mismo: la atención está saturada y la memoria es selectiva. Si apareces de vez en cuando, cada publicación tuya tiene que remar contra el olvido. Volviendo a Seth Godin —referente clave en construcción de comunidades y liderazgo de ideas—, el valor surge cuando cumples una promesa de forma consistente en el tiempo, no cuando haces ruido un día y desapareces. Si buscas una lectura corta sobre cómo sostener el impulso en momentos difíciles, The Dip o Poke the Box van directo al grano. La frecuencia no es grabar tres veces al día; es sostener un ritmo realista que tu agenda aguante para seguir presente cuando el cliente sí esté listo para decidir. ¿Qué tan presente estás en la mente de tu audiencia entre una venta y la siguiente?`,
+        blocks: {
+          gancho: "Si llevas semanas sin subir nada porque tu operación diaria te absorbe y sientes que sin tiempo libre es imposible mantener una cuenta activa, es una traba muy real; pero te muestro cómo resolverlo sin quemarte usando la frecuencia estratégica a tu favor.",
+          desarrollo: "Imagina que vas a una cafetería que te encanta, pero solo abre tres días al mes sin avisar. Por buena que sea, vas a terminar yendo a otro lado. En redes pasa lo mismo: la atención está saturada y la memoria es selectiva. Si apareces de vez en cuando, cada publicación tuya tiene que remar contra el olvido.",
+          autoridad: "Volviendo a Seth Godin —referente clave en construcción de comunidades y liderazgo de ideas—, el valor surge cuando cumples una promesa de forma consistente en el tiempo, no cuando haces ruido un día y desapareces. Si buscas una lectura corta sobre cómo sostener el impulso en momentos difíciles, The Dip o Poke the Box van directo al grano.",
+          cierre: "La frecuencia no es grabar tres veces al día; es sostener un ritmo realista que tu agenda aguante para seguir presente cuando el cliente sí esté listo para decidir. ¿Qué tan presente estás en la mente de tu audiencia entre una venta y la siguiente?"
+        }
+      },
+      {
+        id: 5,
+        number: "Reel 5",
+        title: "El mercado enseña más que el borrador",
+        pillar: "Iteración",
+        referenceAuthor: "Eric Ries",
+        referenceBooks: "El método Lean Startup",
+        coverText: "Tu borrador no vende",
+        caption: `Pulir un guion durante semanas te da sensación de avance, pero el único juez real de tu mensaje es la reacción de tu audiencia cuando publicas.\n\nEric Ries lo explica a fondo en El método Lean Startup: validar rápido en el mercado siempre supera a la especulación en el escritorio.\n\nEnvíale este Reel a ese colega o socio que lleva meses planeando lanzar su cuenta y todavía no sube su primer video.`,
+        hashtags: "#ValidacionDeIdeas #MarketingEstrategico #EmprendimientoDigital #MentalidadEmprendedora #CrecimientoDeNegocios",
+        iconSvg: `
+          <svg class="w-8 h-8 text-charcoal/80" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.15">
+            <circle cx="16" cy="18" r="8" />
+            <circle cx="19" cy="16" r="8" />
+            <circle cx="18" cy="20" r="8" />
+          </svg>
+        `,
+        text: `Si sigues reescribiendo guiones y ajustando detalles antes de publicar porque quieres asegurarte de que todo funcione desde el primer intento, es lógico querer evitar errores públicos; pero hoy te cuento por qué ese perfeccionismo te deja a ciegas y cómo usar el mercado real para afinar tu mensaje. Es muy cómodo pasar tres semanas puliendo una frase en un documento y convencerse de que ya quedó lista, pero el mercado no lee borradores, responde a estímulos reales. Eric Ries —emprendedor, autor y creador del movimiento Lean Startup— ha puesto el foco en el ciclo de construir, medir y aprender sobre la marcha, porque la realidad siempre corrige más rápido que la especulación. Te recomiendo El método Lean Startup si quieres llevar esa lógica de validación rápida a tus proyectos y contenidos. Publicar algo imperfecto pero bien pensado te da datos reales: qué se guarda, qué se comenta, qué genera preguntas. Si soltaras esa idea hoy en vez de pulirla un mes más, ¿qué aprenderías que todavía no sabes?`,
+        blocks: {
+          gancho: "Si sigues reescribiendo guiones y ajustando detalles antes de publicar porque quieres asegurarte de que todo funcione desde el primer intento, es lógico querer evitar errores públicos; pero hoy te cuento por qué ese perfeccionismo te deja a ciegas y cómo usar el mercado real para afinar tu mensaje.",
+          desarrollo: "Es muy cómodo pasar tres semanas puliendo una frase en un documento y convencerse de que ya quedó lista, pero el mercado no lee borradores, responde a estímulos reales.",
+          autoridad: "Eric Ries —emprendedor, autor y creador del movimiento Lean Startup— ha puesto el foco en el ciclo de construir, medir y aprender sobre la marcha, porque la realidad siempre corrige más rápido que la especulación. Te recomiendo El método Lean Startup si quieres llevar esa lógica de validación rápida a tus proyectos y contenidos.",
+          cierre: "Publicar algo imperfecto pero bien pensado te da datos reales: qué se guarda, qué se comenta, qué genera preguntas. Si soltaras esa idea hoy en vez de pulirla un mes más, ¿qué aprenderías que todavía no sabes?"
+        }
+      },
+      {
+        id: 6,
+        number: "Reel 6",
+        title: "El costo de esperar",
+        pillar: "Cierre y conversión",
+        referenceAuthor: "David Ogilvy",
+        referenceBooks: "Confesiones de un publicitario",
+        coverText: "Mientras esperas, otros venden",
+        caption: `Cada mes que aplazas tu presencia digital bajo la excusa de "prepararte mejor", alguien con menos equipo pero más constancia está ocupando tu lugar en la mente de tus clientes.\n\nComo decía David Ogilvy, no puedes vender si ni siquiera estás en la conversación.\n\nSi ya decidiste dejar de postergar tus redes pero quieres hacerlo con estrategia y sin improvisar, escríbeme un mensaje directo con la palabra SERIE y revisamos cómo estructurar tu contenido.`,
+        hashtags: "#ConversionDigital #ClientesEnRedes #EstrategiaComercial #EmprendedoresDigitales #MarketingYVentas",
+        iconSvg: `
+          <svg class="w-8 h-8 text-charcoal/80" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.15">
+            <path d="M10 10L18 18L10 26" />
+            <path d="M16 10L24 18L16 26" />
+            <path d="M22 10L30 18L22 26" />
+          </svg>
+        `,
+        text: `Si todavía estás esperando a tener más presupuesto, mejor equipo o una agenda más libre para tomarte en serio tus redes, es fácil justificar la pausa como prudencia; pero aquí te muestro el costo real de esa espera y cómo empezar hoy mismo a recuperar terreno. Piensa en una mesa donde hay seis lugares y cinco ya están ocupados por gente que llegó antes, habló claro y se ganó la confianza de los demás, mientras tú sigues esperando afuera a que baje la luz perfecta. En marketing hablamos mucho de adquisición, pero casi nadie calcula el costo de oportunidad de quedarse quieto mientras otros ocupan el espacio mental de tu cliente. Como recuerda David Ogilvy —figura fundacional de la publicidad estratégica orientada a resultados—, la publicidad que no vende es estéril, y no puedes vender si ni siquiera estás en la conversación. Confesiones de un publicitario sigue siendo una excelente guía para volver a lo esencial cuando te distrae lo accesorio. No necesitas un estudio para empezar a construir presencia; necesitas criterio, constancia y un mensaje que hable de problemas reales. Si este mes sigue pasando igual que el anterior, ¿quién se va a quedar con la atención que hoy no estás tomando?`,
+        blocks: {
+          gancho: "Si todavía estás esperando a tener más presupuesto, mejor equipo o una agenda más libre para tomarte en serio tus redes, es fácil justificar la pausa como prudencia; pero aquí te muestro el costo real de esa espera y cómo empezar hoy mismo a recuperar terreno.",
+          desarrollo: "Piensa en una mesa donde hay seis lugares y cinco ya están ocupados por gente que llegó antes, habló claro y se ganó la confianza de los demás, mientras tú sigues esperando afuera a que baje la luz perfecta. En marketing hablamos mucho de adquisición, pero casi nadie calcula el costo de oportunidad de quedarse quieto mientras otros ocupan el espacio mental de tu cliente.",
+          autoridad: "Como recuerda David Ogilvy —figura fundacional de la publicidad estratégica orientada a resultados—, la publicidad que no vende es estéril, y no puedes vender si ni siquiera estás en la conversación. Confesiones de un publicitario sigue siendo una excelente guía para volver a lo esencial cuando te distrae lo accesorio.",
+          cierre: "No necesitas un estudio para empezar a construir presencia; necesitas criterio, constancia y un mensaje que hable de problemas reales. Si este mes sigue pasando igual que el anterior, ¿quién se va a quedar con la atención que hoy no estás tomando?"
+        }
+      }
+    ];
+
+    // =========================================================================
+    // 2. ESTADO DE LA APLICACIÓN Y PERSISTENCIA EN LOCALSTORAGE
+    // =========================================================================
+    const STORAGE_KEY = 'agencia_reinventa_serie01_recorded';
+    const DRIVE_STORAGE_KEY = 'agencia_reinventa_serie01_drive_links';
+    let recordedIds = [];
+    let customDriveLinks = {};
+    let currentFilter = 'all';
+    let searchQuery = '';
+    let activeModalIndex = 0;
+    let activeDriveEditId = 1;
+    let expandedCardSocialIds = [];
+
+    // Estado del Teleprompter
+    let tpCurrentIndex = 0;
+    let tpIsPlaying = false;
+    let tpSpeed = 1.0;
+    let tpFontSize = 34;
+    let tpIsMirrored = false;
+    let tpAnimFrame = null;
+    let tpLastTimestamp = null;
+    let tpElapsedSeconds = 0;
+    let tpTimerInterval = null;
+
+    function isRecorded(id) {
+      return recordedIds.includes(id);
+    }
+
+    function saveProgress() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(recordedIds));
+      } catch (e) {
+        console.warn('No se pudo guardar el progreso en localStorage:', e);
+      }
+      updateProgressUI();
+    }
+
+    function toggleRecorded(id, event) {
+      if (event) event.stopPropagation();
+      if (isRecorded(id)) {
+        recordedIds = recordedIds.filter(item => item !== id);
+        showToast(`Reel ${id} marcado como pendiente`);
+      } else {
+        recordedIds.push(id);
+        showToast(`✓ Reel ${id} marcado como grabado`);
+      }
+      saveProgress();
+      renderScriptsGrid();
+      syncModalCheckbox();
+    }
+
+    function resetProgress() {
+      recordedIds = [];
+      saveProgress();
+      renderScriptsGrid();
+      syncModalCheckbox();
+      showToast('Estado de grabación reiniciado');
+    }
+
+    function updateProgressUI() {
+      const total = REELS_DATA.length;
+      const done = recordedIds.length;
+      const pct = Math.round((done / total) * 100);
+
+      document.getElementById('headerProgressBadge').textContent = `${done} de ${total} grabados`;
+      document.getElementById('sidebarProgressText').textContent = `${done} / ${total} (${pct}%)`;
+      document.getElementById('sidebarProgressBar').style.width = `${pct}%`;
+    }
+
+    // =========================================================================
+    // 3. UTILIDADES DE TEXTO, COPIADO, NOTIFICACIONES Y DESCARGA .TXT
+    // =========================================================================
+    function getWordCount(text) {
+      return text.trim().split(/\s+/).filter(Boolean).length;
+    }
+
+    function getEstimatedSeconds(text) {
+      // Promedio conversacional en español: ~155 palabras por minuto
+      const words = getWordCount(text);
+      return Math.max(15, Math.round((words / 155) * 60));
+    }
+
+    function showToast(message) {
+      const container = document.getElementById('toastContainer');
+      if (!container) return;
+
+      const toast = document.createElement('div');
+      toast.className = 'bg-charcoal text-ivoryPage text-xs font-medium px-4 py-2.5 rounded shadow-lg border border-white/10 animate-fade-up pointer-events-auto';
+      toast.textContent = message;
+      container.appendChild(toast);
+
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateY(6px)';
+        toast.style.transition = 'all 0.22s ease';
+        setTimeout(() => toast.remove(), 240);
+      }, 2400);
+    }
+
+    function copyTextFallback(text, successMsg = 'Copiado al portapapeles') {
+      if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+        navigator.clipboard.writeText(text).then(() => {
+          showToast(successMsg);
+        }).catch(() => {
+          execCopyCommand(text, successMsg);
+        });
+      } else {
+        execCopyCommand(text, successMsg);
+      }
+    }
+
+    function execCopyCommand(text, successMsg) {
+      const textArea = document.createElement('textarea');
+      textArea.value = text;
+      textArea.setAttribute('readonly', '');
+      textArea.style.position = 'fixed';
+      textArea.style.left = '-9999px';
+      document.body.appendChild(textArea);
+      textArea.focus();
+      textArea.select();
+      try {
+        const ok = document.execCommand('copy');
+        showToast(ok ? successMsg : 'No se pudo copiar automáticamente');
+      } catch (err) {
+        showToast('No se pudo copiar automáticamente');
+      }
+      document.body.removeChild(textArea);
+    }
+
+    function copySingleScript(id, event) {
+      if (event) event.stopPropagation();
+      const reel = REELS_DATA.find(r => r.id === id);
+      if (!reel) return;
+      const formatted = `${reel.number} · ${reel.title} (${reel.pillar})\n\n${reel.text}`;
+      copyTextFallback(formatted, `Guion del ${reel.number} copiado`);
+    }
+
+    function copyAllScripts() {
+      const allText = REELS_DATA.map(r =>
+        `${r.number} · ${r.title} (${r.pillar})\n${r.text}`
+      ).join('\n\n====================================\n\n');
+      copyTextFallback(allText, 'Los 6 guiones copiados al portapapeles');
+    }
+
+    function exportAllScriptsTxt() {
+      try {
+        const content = buildFullExportContent();
+        const blob = new Blob(['\uFEFF' + content], { type: 'text/plain;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'Agencia-Reinventa-Serie-01-Guiones-Copy-Hashtags.txt';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        showToast('Archivo .TXT descargado correctamente');
+      } catch (err) {
+        console.error('Error al exportar .TXT:', err);
+        showToast('No se pudo generar el archivo .TXT');
+      }
+    }
+
+    // =========================================================================
+    // 4. FILTROS, BÚSQUEDA Y ENLACES DE GOOGLE DRIVE
+    // =========================================================================
+    function setFilter(filterName) {
+      currentFilter = filterName;
+      document.querySelectorAll('.filter-btn').forEach(btn => {
+        const isActive = btn.getAttribute('data-filter') === filterName;
+        if (isActive) {
+          btn.classList.add('bg-sage', 'text-ivoryPage');
+          btn.classList.remove('text-slateMuted', 'hover:text-charcoal');
+        } else {
+          btn.classList.remove('bg-sage', 'text-ivoryPage');
+          btn.classList.add('text-slateMuted', 'hover:text-charcoal');
+        }
+      });
+      renderScriptsGrid();
+    }
+
+    function handleSearch(value) {
+      searchQuery = value.trim().toLowerCase();
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (clearBtn) {
+        clearBtn.classList.toggle('hidden', !searchQuery);
+      }
+      renderScriptsGrid();
+    }
+
+    function clearSearch() {
+      const input = document.getElementById('searchInput');
+      if (input) input.value = '';
+      searchQuery = '';
+      const clearBtn = document.getElementById('clearSearchBtn');
+      if (clearBtn) clearBtn.classList.add('hidden');
+      renderScriptsGrid();
+    }
+
+    function loadProgress() {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed)) recordedIds = parsed.map(Number).filter(n => !Number.isNaN(n));
+        }
+        const savedDrive = localStorage.getItem(DRIVE_STORAGE_KEY);
+        if (savedDrive) {
+          const parsedDrive = JSON.parse(savedDrive);
+          if (parsedDrive && typeof parsedDrive === 'object') customDriveLinks = parsedDrive;
+        }
+      } catch (e) {
+        console.warn('No se pudo leer el almacenamiento local:', e);
+      }
+    }
+
+    function saveDriveLinks() {
+      try {
+        localStorage.setItem(DRIVE_STORAGE_KEY, JSON.stringify(customDriveLinks));
+      } catch (e) {
+        console.warn('No se pudo guardar enlaces Drive:', e);
+      }
+    }
+
+    function getDriveLink(id) {
+      if (customDriveLinks[id] && String(customDriveLinks[id]).trim() !== "") {
+        return String(customDriveLinks[id]).trim();
+      }
+      if (DRIVE_LINKS[id] && String(DRIVE_LINKS[id]).trim() !== "") {
+        return String(DRIVE_LINKS[id]).trim();
+      }
+      return "";
+    }
+
+    /**
+     * Convierte enlaces habituales de Google Drive a URL de descarga directa
+     * cuando se detecta un ID de archivo válido.
+     */
+    function toGoogleDriveDownloadUrl(rawUrl) {
+      const url = rawUrl.trim();
+      if (!url) return "";
+
+      // Ej: https://drive.google.com/file/d/FILE_ID/view?usp=sharing
+      const fileMatch = url.match(/drive\.google\.com\/file\/d\/([a-zA-Z0-9_-]+)/);
+      if (fileMatch && fileMatch[1]) {
+        return `https://drive.google.com/uc?export=download&id=${fileMatch[1]}`;
+      }
+
+      // Ej: https://drive.google.com/open?id=FILE_ID o uc?id=FILE_ID
+      const idParamMatch = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+      if (idParamMatch && idParamMatch[1]) {
+        return `https://drive.google.com/uc?export=download&id=${idParamMatch[1]}`;
+      }
+
+      return url;
+    }
+
+    function triggerDriveDownload(id, event) {
+      if (event) event.stopPropagation();
+      const rawUrl = getDriveLink(id);
+      if (!rawUrl) {
+        showToast(`Agrega primero el enlace de Google Drive para el Reel ${id}`);
+        openDriveLinkModal(id);
+        return;
+      }
+
+      const downloadUrl = toGoogleDriveDownloadUrl(rawUrl);
+      const win = window.open(downloadUrl, '_blank', 'noopener,noreferrer');
+      if (!win) {
+        const a = document.createElement('a');
+        a.href = downloadUrl;
+        a.target = '_blank';
+        a.rel = 'noopener noreferrer';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+      showToast(`Abriendo descarga de Google Drive · Reel ${id}`);
+    }
+
+    function openDriveLinkModal(id, event) {
+      if (event) event.stopPropagation();
+      activeDriveEditId = id;
+      const reel = REELS_DATA.find(r => r.id === id);
+      if (!reel) return;
+
+      document.getElementById('driveModalReelTag').textContent = `${reel.number.toUpperCase()} · ${reel.pillar.toUpperCase()}`;
+      document.getElementById('driveModalTitle').textContent = reel.title;
+      document.getElementById('driveUrlInput').value = getDriveLink(id);
+      document.getElementById('driveLinkModal').classList.remove('hidden');
+      setTimeout(() => document.getElementById('driveUrlInput').focus(), 50);
+    }
+
+    function closeDriveLinkModal() {
+      document.getElementById('driveLinkModal').classList.add('hidden');
+    }
+
+    function saveDriveLinkFromModal() {
+      const val = document.getElementById('driveUrlInput').value.trim();
+      customDriveLinks[activeDriveEditId] = val;
+      saveDriveLinks();
+      closeDriveLinkModal();
+      renderScriptsGrid();
+      syncModalDriveButton();
+      showToast(val ? `Enlace de Google Drive guardado para Reel ${activeDriveEditId}` : `Enlace eliminado del Reel ${activeDriveEditId}`);
+    }
+
+    function clearCurrentDriveLink() {
+      document.getElementById('driveUrlInput').value = '';
+      customDriveLinks[activeDriveEditId] = '';
+      saveDriveLinks();
+      closeDriveLinkModal();
+      renderScriptsGrid();
+      syncModalDriveButton();
+      showToast(`Enlace de Drive quitado del Reel ${activeDriveEditId}`);
+    }
+
+    function toggleCardSocialDrawer(id, event) {
+      if (event) event.stopPropagation();
+      if (expandedCardSocialIds.includes(id)) {
+        expandedCardSocialIds = expandedCardSocialIds.filter(item => item !== id);
+      } else {
+        expandedCardSocialIds.push(id);
+      }
+      renderScriptsGrid();
+    }
+
+    function buildFullExportContent() {
+      const header = [
+        "AGENCIA REINVENTA — REPOSITORIO DE GUIONES, COPY Y HASHTAGS",
+        "Web: https://agencireinventa.online | Instagram: @agencia.reinventa",
+        "Serie 01: «Nunca estás verdaderamente listo, pero hay que accionar»",
+        "======================================================================",
+        ""
+      ].join("\n");
+
+      const body = REELS_DATA.map(r => {
+        const status = isRecorded(r.id) ? "[GRABADO]" : "[PENDIENTE]";
+        const driveUrl = getDriveLink(r.id) || "Pendiente de enlace Drive";
+        return [
+          `${r.number} · ${r.title} (${r.pillar}) ${status}`,
+          `Video Google Drive: ${driveUrl}`,
+          `Texto de portada: ${r.coverText}`,
+          `\n[GUION DE GRABACIÓN]\n${r.text}`,
+          `\n[COPY / DESCRIPCIÓN]\n${r.caption}`,
+          `\n[HASHTAGS]\n${r.hashtags}`
+        ].join("\n");
+      }).join("\n\n----------------------------------------------------------------------\n\n");
+
+      return header + body + "\n";
+    }
+
+    function escapeForJsSingle(str) {
+      return String(str)
+        .replace(/\\/g, '\\\\')
+        .replace(/'/g, "\\'")
+        .replace(/\r?\n/g, '\\n');
+    }
+
+    function renderScriptsGrid() {
+      const grid = document.getElementById('scriptsGrid');
+      const emptyState = document.getElementById('emptyFilterState');
+      const countLabel = document.getElementById('filterResultLabel');
+
+      const filtered = REELS_DATA.filter(reel => {
+        const recorded = isRecorded(reel.id);
+        if (currentFilter === 'recorded' && !recorded) return false;
+        if (currentFilter === 'pending' && recorded) return false;
+
+        if (searchQuery) {
+          const haystack = `${reel.number} ${reel.title} ${reel.pillar} ${reel.referenceAuthor} ${reel.coverText} ${reel.caption} ${reel.hashtags} ${reel.text}`.toLowerCase();
+          return haystack.includes(searchQuery);
+        }
+        return true;
+      });
+
+      countLabel.textContent = `Mostrando ${filtered.length} de ${REELS_DATA.length} guiones`;
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '';
+        emptyState.classList.remove('hidden');
+        return;
+      }
+
+      emptyState.classList.add('hidden');
+
+      grid.innerHTML = filtered.map((reel, idx) => {
+        const recorded = isRecorded(reel.id);
+        const estSec = getEstimatedSeconds(reel.text);
+        const isLeftCol = idx % 2 === 0;
+        const driveUrl = getDriveLink(reel.id);
+        const hasDrive = Boolean(driveUrl);
+        const isSocialOpen = expandedCardSocialIds.includes(reel.id);
+
+        const safeCover = escapeForJsSingle(reel.coverText);
+        const safeCaption = escapeForJsSingle(reel.caption);
+        const safeHashtags = escapeForJsSingle(reel.hashtags);
+        const safeFullPost = escapeForJsSingle(`${reel.caption}\n\n${reel.hashtags}`);
+
+        return `
+          <article onclick="openScriptModal(${reel.id - 1})"
+                   class="group py-7 ${isLeftCol ? 'md:pr-7 md:border-r md:border-hairline' : 'md:pl-7'} border-b border-hairline flex flex-col justify-between transition-colors hover:bg-ivorySubtle/45 cursor-pointer">
+            <div>
+              <!-- Fila superior: Icono geométrico minimalista + Estado Grabado/Pendiente -->
+              <div class="flex items-start justify-between gap-3 mb-4">
+                <div class="flex items-center gap-3">
+                  <div class="shrink-0 opacity-90 group-hover:opacity-100 transition-opacity">
+                    ${reel.iconSvg}
+                  </div>
+                  <div>
+                    <span class="block text-[11px] uppercase tracking-[0.14em] font-semibold text-sage">
+                      ${reel.number} · ${reel.pillar}
+                    </span>
+                    <span class="text-[11px] text-midGray">
+                      Ref: ${reel.referenceAuthor} · ~${estSec}s
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Checkbox de estado Grabado / Pendiente -->
+                <label onclick="event.stopPropagation()"
+                       class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded border text-[11px] font-medium cursor-pointer transition-colors select-none
+                       ${recorded ? 'bg-sage/15 border-sage/40 text-sage' : 'bg-ivorySubtle/70 border-hairline text-slateMuted hover:text-charcoal'}">
+                  <input type="checkbox" ${recorded ? 'checked' : ''} onchange="toggleRecorded(${reel.id}, event)"
+                         class="w-3.5 h-3.5 accent-[#52634F] rounded cursor-pointer" />
+                  <span>${recorded ? 'Grabado' : 'Pendiente'}</span>
+                </label>
+              </div>
+
+              <!-- Título del Reel + Texto de Portada -->
+              <h3 class="font-display text-lg sm:text-[19px] font-medium text-charcoal group-hover:text-sage transition-colors leading-snug mb-1.5">
+                ${reel.title}
+              </h3>
+
+              <div class="inline-flex items-center gap-1.5 text-[11px] text-slateMuted bg-ivorySubtle/90 border border-hairline/80 px-2.5 py-0.5 rounded mb-3">
+                <span class="font-semibold text-charcoal">Portada:</span>
+                <span>«${reel.coverText}»</span>
+              </div>
+
+              <!-- Gancho inicial (extracto limpio) -->
+              <p class="text-xs sm:text-[13px] text-slateMuted leading-relaxed line-clamp-3">
+                “${reel.blocks.gancho}”
+              </p>
+
+              <!-- Acordeón Rápido de Copy & Hashtags en Tarjeta -->
+              ${isSocialOpen ? `
+                <div onclick="event.stopPropagation()" class="mt-4 p-3.5 rounded bg-ivorySubtle/90 border border-hairline space-y-3 text-left animate-fade-up cursor-default">
+                  <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-hairline/70">
+                    <span class="text-[10px] uppercase tracking-[0.12em] font-semibold text-sage">Copy &amp; Hashtags</span>
+                    <button type="button" onclick="copyTextFallback('${safeFullPost}', 'Post completo (copy + hashtags) copiado')"
+                            class="px-2 py-0.5 text-[10px] font-semibold bg-sage text-ivoryPage rounded hover:bg-sageHover cursor-pointer">
+                      Copiar Post Completo
+                    </button>
+                  </div>
+
+                  <div>
+                    <div class="flex items-center justify-between gap-2">
+                      <span class="text-[11px] font-semibold text-charcoal">Portada: «${reel.coverText}»</span>
+                      <button type="button" onclick="copyTextFallback('${safeCover}', 'Texto de portada copiado')"
+                              class="text-[10px] font-medium text-sage underline cursor-pointer shrink-0">Copiar portada</button>
+                    </div>
+                  </div>
+
+                  <div>
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-[10px] uppercase tracking-wider text-slateMuted font-medium">Descripción</span>
+                      <button type="button" onclick="copyTextFallback('${safeCaption}', 'Copy (descripción) copiado')"
+                              class="text-[10px] font-medium text-sage underline cursor-pointer">Copiar copy</button>
+                    </div>
+                    <p class="text-[11px] text-charcoal leading-relaxed whitespace-pre-line">${reel.caption}</p>
+                  </div>
+
+                  <div>
+                    <div class="flex items-center justify-between mb-1">
+                      <span class="text-[10px] uppercase tracking-wider text-slateMuted font-medium">Hashtags</span>
+                      <button type="button" onclick="copyTextFallback('${safeHashtags}', 'Hashtags copiados')"
+                              class="text-[10px] font-medium text-sage underline cursor-pointer">Copiar hashtags</button>
+                    </div>
+                    <p class="text-[11px] font-medium text-sage break-words">${reel.hashtags}</p>
+                  </div>
+                </div>
+              ` : ''}
+            </div>
+
+            <!-- Acciones rápidas de la tarjeta -->
+            <div class="mt-5 pt-4 border-t border-hairline/60 space-y-2.5">
+              <!-- Fila 1: Lectura de guion + Toggle Copy/Hashtags -->
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div class="flex items-center gap-3">
+                  <button type="button" onclick="openScriptModal(${reel.id - 1}, 'structured'); event.stopPropagation();"
+                          class="text-xs font-semibold text-charcoal group-hover:text-sage underline underline-offset-4 transition-colors cursor-pointer">
+                    Leer guion
+                  </button>
+                  <button type="button" onclick="toggleCardSocialDrawer(${reel.id}, event)"
+                          class="text-xs font-medium text-slateMuted hover:text-charcoal underline underline-offset-4 transition-colors cursor-pointer">
+                    ${isSocialOpen ? 'Ocultar copy' : 'Copy & Hashtags'}
+                  </button>
+                </div>
+
+                <div class="flex items-center gap-1.5">
+                  <button type="button" onclick="copySingleScript(${reel.id}, event)"
+                          title="Copiar texto íntegro del guion"
+                          class="px-2 py-1 text-[11px] font-medium text-slateMuted hover:text-charcoal bg-ivorySubtle hover:bg-hairline/40 border border-hairline rounded transition-colors cursor-pointer">
+                    Copiar
+                  </button>
+                  <button type="button" onclick="openTeleprompter(${reel.id - 1}); event.stopPropagation();"
+                          title="Abrir en Teleprompter"
+                          class="px-2.5 py-1 text-[11px] font-medium text-ivoryPage bg-sage hover:bg-sageHover rounded transition-colors cursor-pointer">
+                    Teleprompter
+                  </button>
+                </div>
+              </div>
+
+              <!-- Fila 2: Botón Descargar Video · Google Drive + Configuración rápida -->
+              <div onclick="event.stopPropagation()" class="flex items-center justify-between gap-1.5 pt-1">
+                <button type="button" onclick="triggerDriveDownload(${reel.id}, event)"
+                        class="flex-1 flex items-center justify-center gap-1.5 px-3 py-1.5 rounded border text-[11px] font-medium transition-colors cursor-pointer
+                        ${hasDrive ? 'bg-charcoal text-ivoryPage border-charcoal hover:bg-charcoal/90' : 'bg-ivorySubtle/80 text-slateMuted border-hairline hover:text-charcoal hover:bg-ivorySubtle'}">
+                  <svg class="w-3.5 h-3.5 ${hasDrive ? 'text-[#9AB895]' : 'text-midGray'}" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5 5-5M12 15V3" />
+                  </svg>
+                  <span>${hasDrive ? 'Descargar video · Drive' : 'Configurar enlace · Drive'}</span>
+                </button>
+                <button type="button" onclick="openDriveLinkModal(${reel.id}, event)"
+                        title="Configurar enlace de Google Drive"
+                        class="px-2.5 py-1.5 rounded border border-hairline bg-ivorySubtle/80 hover:bg-hairline/40 text-slateMuted hover:text-charcoal text-[11px] transition-colors cursor-pointer">
+                  ✎
+                </button>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+    }
+
+    // =========================================================================
+    // 5. MODAL DE LECTURA ESTRUCTURADA, TEXTO COMPLETO Y COPY & HASHTAGS
+    // =========================================================================
+    function openScriptModal(index, defaultTab = 'structured') {
+      activeModalIndex = index;
+      const reel = REELS_DATA[index];
+      if (!reel) return;
+
+      const words = getWordCount(reel.text);
+      const sec = getEstimatedSeconds(reel.text);
+
+      document.getElementById('modalReelBadge').textContent = reel.number.toUpperCase();
+      document.getElementById('modalPillarBadge').textContent = reel.pillar;
+      document.getElementById('modalStatsBadge').textContent = `${words} palabras · ~${sec}s lectura`;
+      document.getElementById('modalTitle').textContent = reel.title;
+      document.getElementById('modalFullTextContent').textContent = reel.text;
+
+      // Poblar vista de Copy & Hashtags
+      document.getElementById('modalCoverText').textContent = reel.coverText;
+      document.getElementById('modalCaptionText').textContent = reel.caption;
+      document.getElementById('modalHashtagsText').textContent = reel.hashtags;
+
+      // Renderizar los 4 bloques narrativos
+      const blocksData = [
+        {
+          tag: '01 · Gancho & Empatía',
+          hint: 'Mira directo a la lente. Tono cercano, sin prisa.',
+          content: reel.blocks.gancho
+        },
+        {
+          tag: '02 · Desarrollo & Analogía Visual',
+          hint: 'Usa pausas breves para que el espectador visualice la escena.',
+          content: reel.blocks.desarrollo
+        },
+        {
+          tag: `03 · Autoridad & Referente (${reel.referenceAuthor})`,
+          hint: `Cita bibliográfica: ${reel.referenceBooks}`,
+          content: reel.blocks.autoridad
+        },
+        {
+          tag: '04 · Cierre & Pregunta de Activación',
+          hint: 'Baja ligeramente el ritmo en la pregunta final para invitar a comentar.',
+          content: reel.blocks.cierre
+        }
+      ];
+
+      document.getElementById('structuredBlocksContainer').innerHTML = blocksData.map(b => `
+        <div class="border border-hairline bg-ivorySubtle/45 rounded p-4 sm:p-5">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+            <span class="text-[11px] uppercase tracking-[0.12em] font-semibold text-sage">${b.tag}</span>
+            <span class="text-[11px] text-midGray">${b.hint}</span>
+          </div>
+          <p class="text-sm sm:text-[15px] text-charcoal leading-[1.72]">${b.content}</p>
+        </div>
+      `).join('');
+
+      syncModalCheckbox();
+      syncModalDriveButton();
+      switchModalView(defaultTab);
+
+      document.getElementById('modalPrevBtn').disabled = index === 0;
+      document.getElementById('modalNextBtn').disabled = index === REELS_DATA.length - 1;
+
+      document.getElementById('scriptModal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function syncModalDriveButton() {
+      const reel = REELS_DATA[activeModalIndex];
+      if (!reel) return;
+      const url = getDriveLink(reel.id);
+      const label = document.getElementById('modalDriveBtnLabel');
+      if (label) {
+        label.textContent = url ? 'Descargar video · Drive' : 'Configurar enlace Drive';
+      }
+    }
+
+    function handleModalDriveAction() {
+      const reel = REELS_DATA[activeModalIndex];
+      if (!reel) return;
+      triggerDriveDownload(reel.id);
+    }
+
+    function copyModalCoverText() {
+      const reel = REELS_DATA[activeModalIndex];
+      if (reel) copyTextFallback(reel.coverText, 'Texto de portada copiado');
+    }
+
+    function copyModalCaption() {
+      const reel = REELS_DATA[activeModalIndex];
+      if (reel) copyTextFallback(reel.caption, 'Copy (descripción) copiado');
+    }
+
+    function copyModalHashtags() {
+      const reel = REELS_DATA[activeModalIndex];
+      if (reel) copyTextFallback(reel.hashtags, 'Hashtags copiados');
+    }
+
+    function copyModalFullPost() {
+      const reel = REELS_DATA[activeModalIndex];
+      if (reel) copyTextFallback(`${reel.caption}\n\n${reel.hashtags}`, 'Post completo (copy + hashtags) copiado');
+    }
+
+    function closeScriptModal() {
+      document.getElementById('scriptModal').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function handleModalBackdropClick(e) {
+      if (e.target.id === 'scriptModal') {
+        closeScriptModal();
+      }
+    }
+
+    function switchModalView(view) {
+      const tabs = {
+        structured: document.getElementById('tabStructured'),
+        full: document.getElementById('tabFullText'),
+        social: document.getElementById('tabSocialCopy')
+      };
+      const containers = {
+        structured: document.getElementById('structuredBlocksContainer'),
+        full: document.getElementById('fullTextContainer'),
+        social: document.getElementById('socialCopyContainer')
+      };
+
+      Object.keys(tabs).forEach(key => {
+        if (key === view) {
+          tabs[key].classList.add('border-sage', 'text-charcoal', 'font-semibold');
+          tabs[key].classList.remove('border-transparent', 'text-slateMuted');
+          containers[key].classList.remove('hidden');
+        } else {
+          tabs[key].classList.remove('border-sage', 'text-charcoal', 'font-semibold');
+          tabs[key].classList.add('border-transparent', 'text-slateMuted');
+          containers[key].classList.add('hidden');
+        }
+      });
+    }
+
+    function syncModalCheckbox() {
+      const reel = REELS_DATA[activeModalIndex];
+      if (!reel) return;
+      const checked = isRecorded(reel.id);
+      const cb = document.getElementById('modalRecordedCheckbox');
+      const lbl = document.getElementById('modalRecordedLabel');
+      if (cb) cb.checked = checked;
+      if (lbl) {
+        lbl.textContent = checked ? 'Grabado ✓' : 'Marcar como grabado';
+        lbl.className = checked ? 'font-semibold text-sage' : 'font-medium text-slateMuted';
+      }
+    }
+
+    function toggleRecordedFromModal() {
+      const reel = REELS_DATA[activeModalIndex];
+      if (reel) toggleRecorded(reel.id);
+    }
+
+    function navigateModal(delta) {
+      const nextIdx = activeModalIndex + delta;
+      if (nextIdx >= 0 && nextIdx < REELS_DATA.length) {
+        openScriptModal(nextIdx);
+      }
+    }
+
+    function copyCurrentModalScript() {
+      const reel = REELS_DATA[activeModalIndex];
+      if (reel) copySingleScript(reel.id);
+    }
+
+    function launchTeleprompterFromModal() {
+      closeScriptModal();
+      openTeleprompter(activeModalIndex);
+    }
+
+    // =========================================================================
+    // 6. MODO TELEPROMPTER INTERACTIVO
+    // =========================================================================
+    function initTeleprompterSelector() {
+      const select = document.getElementById('tpReelSelector');
+      select.innerHTML = REELS_DATA.map((r, idx) =>
+        `<option value="${idx}">${r.number} · ${r.title}</option>`
+      ).join('');
+    }
+
+    function openTeleprompter(index = 0) {
+      tpCurrentIndex = index;
+      closeScriptModal();
+      const overlay = document.getElementById('teleprompterOverlay');
+      overlay.classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+
+      loadTeleprompterReel(tpCurrentIndex);
+    }
+
+    function closeTeleprompter() {
+      stopTeleprompterPlay();
+      document.getElementById('teleprompterOverlay').classList.add('hidden');
+      document.body.style.overflow = '';
+    }
+
+    function selectTeleprompterReel(val) {
+      loadTeleprompterReel(parseInt(val, 10));
+    }
+
+    function loadTeleprompterReel(index) {
+      stopTeleprompterPlay();
+      tpCurrentIndex = index;
+      const reel = REELS_DATA[index];
+      if (!reel) return;
+
+      document.getElementById('tpReelSelector').value = index;
+      document.getElementById('tpHeaderLabel').textContent = `${reel.number} · ${reel.title} (${reel.pillar})`;
+      document.getElementById('tpScriptBody').textContent = reel.text;
+
+      resetTeleprompterScroll();
+    }
+
+    function nextTeleprompterReel() {
+      const next = (tpCurrentIndex + 1) % REELS_DATA.length;
+      loadTeleprompterReel(next);
+    }
+
+    function markCurrentTpRecorded() {
+      const reel = REELS_DATA[tpCurrentIndex];
+      if (!reel) return;
+      if (!isRecorded(reel.id)) {
+        recordedIds.push(reel.id);
+        saveProgress();
+        renderScriptsGrid();
+      }
+      showToast(`✓ ${reel.number} guardado como grabado`);
+    }
+
+    function toggleTeleprompterPlay() {
+      if (tpIsPlaying) {
+        stopTeleprompterPlay();
+      } else {
+        startTeleprompterPlay();
+      }
+    }
+
+    function startTeleprompterPlay() {
+      tpIsPlaying = true;
+      document.getElementById('tpPlayIcon').textContent = '⏸ Pausar';
+      tpLastTimestamp = null;
+
+      tpTimerInterval = setInterval(() => {
+        tpElapsedSeconds++;
+        updateTpTimerDisplay();
+      }, 1000);
+
+      function step(timestamp) {
+        if (!tpIsPlaying) return;
+        if (tpLastTimestamp !== null) {
+          const deltaMs = timestamp - tpLastTimestamp;
+          const container = document.getElementById('tpScrollContainer');
+          // Velocidad base: ~38px por segundo ajustada por multiplicador
+          const pxPerSec = 38 * tpSpeed;
+          container.scrollTop += (pxPerSec * deltaMs) / 1000;
+
+          // Detener automáticamente al llegar al final
+          if (container.scrollTop + container.clientHeight >= container.scrollHeight - 4) {
+            stopTeleprompterPlay();
+            return;
+          }
+        }
+        tpLastTimestamp = timestamp;
+        tpAnimFrame = requestAnimationFrame(step);
+      }
+
+      tpAnimFrame = requestAnimationFrame(step);
+    }
+
+    function stopTeleprompterPlay() {
+      tpIsPlaying = false;
+      document.getElementById('tpPlayIcon').textContent = '▶ Iniciar';
+      if (tpAnimFrame) {
+        cancelAnimationFrame(tpAnimFrame);
+        tpAnimFrame = null;
+      }
+      if (tpTimerInterval) {
+        clearInterval(tpTimerInterval);
+        tpTimerInterval = null;
+      }
+    }
+
+    function resetTeleprompterScroll() {
+      stopTeleprompterPlay();
+      const container = document.getElementById('tpScrollContainer');
+      container.scrollTop = 0;
+      tpElapsedSeconds = 0;
+      updateTpTimerDisplay();
+    }
+
+    function updateTpTimerDisplay() {
+      const mins = String(Math.floor(tpElapsedSeconds / 60)).padStart(2, '0');
+      const secs = String(tpElapsedSeconds % 60).padStart(2, '0');
+      document.getElementById('tpTimerDisplay').textContent = `${mins}:${secs}`;
+    }
+
+    function changeTpSpeed(delta) {
+      tpSpeed = Math.min(2.5, Math.max(0.5, +(tpSpeed + delta).toFixed(2)));
+      document.getElementById('tpSpeedDisplay').textContent = `${tpSpeed.toFixed(1)}x`;
+    }
+
+    function changeTpFontSize(delta) {
+      tpFontSize = Math.min(64, Math.max(22, tpFontSize + delta));
+      document.getElementById('tpFontDisplay').textContent = tpFontSize;
+      document.getElementById('tpScriptBody').style.fontSize = `${tpFontSize}px`;
+    }
+
+    function toggleTpMirror() {
+      tpIsMirrored = !tpIsMirrored;
+      const wrapper = document.getElementById('tpTextWrapper');
+      const btn = document.getElementById('tpMirrorBtn');
+      if (tpIsMirrored) {
+        wrapper.classList.add('teleprompter-mirror');
+        btn.classList.add('bg-sage', 'text-ivoryPage', 'border-sage');
+        btn.classList.remove('bg-white/5', 'text-[#A8A69E]');
+      } else {
+        wrapper.classList.remove('teleprompter-mirror');
+        btn.classList.remove('bg-sage', 'text-ivoryPage', 'border-sage');
+        btn.classList.add('bg-white/5', 'text-[#A8A69E]');
+      }
+    }
+
+    // Atajos de teclado (Escape para cerrar modales, Espacio para Play/Pause en Teleprompter)
+    document.addEventListener('keydown', (e) => {
+      const tpOpen = !document.getElementById('teleprompterOverlay').classList.contains('hidden');
+      const modalOpen = !document.getElementById('scriptModal').classList.contains('hidden');
+
+      if (e.key === 'Escape') {
+        if (tpOpen) closeTeleprompter();
+        if (modalOpen) closeScriptModal();
+      }
+
+      if (tpOpen && e.code === 'Space' && document.activeElement.tagName !== 'SELECT') {
+        e.preventDefault();
+        toggleTeleprompterPlay();
+      }
+    });
+
+    // =========================================================================
+    // 7. INICIALIZACIÓN AL CARGAR LA PÁGINA
+    // =========================================================================
+    window.addEventListener('DOMContentLoaded', () => {
+      loadProgress();
+      updateProgressUI();
+      renderScriptsGrid();
+      initTeleprompterSelector();
+    });
+  </script>
+</body>
+</html>
