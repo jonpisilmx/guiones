@@ -44,17 +44,16 @@
       font-family: var(--font-sans);
       line-height: 1.5;
       -webkit-font-smoothing: antialiased;
-      padding: 28px 18px 64px;
+      padding: 24px 16px 56px;
     }
 
-    /* Editorial Sheet Container */
     .editorial-sheet {
       max-width: 1120px;
       margin: 0 auto;
       background-color: var(--bg-paper);
       border-top: 4px solid #FFFFFF;
       box-shadow: 0 24px 60px rgba(26, 26, 26, 0.08);
-      padding: 32px 48px 56px;
+      padding: 28px 44px 48px;
     }
 
     /* Top Navigation Bar */
@@ -63,7 +62,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding-bottom: 24px;
+      padding-bottom: 20px;
       border-bottom: 1px solid var(--border-hairline);
       flex-wrap: wrap;
     }
@@ -89,7 +88,7 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 24px;
+      gap: 18px;
       flex-wrap: wrap;
     }
 
@@ -97,7 +96,6 @@
       text-decoration: none;
       color: var(--ink-secondary);
       font-size: 13px;
-      font-weight: 400;
       transition: color 0.15s ease;
     }
 
@@ -109,7 +107,7 @@
       background-color: var(--accent-sage);
       color: #F7F7F4 !important;
       border: 1px solid var(--accent-sage);
-      padding: 8px 16px;
+      padding: 8px 15px;
       border-radius: var(--radius-sm);
       font-size: 12.5px;
       font-weight: 500;
@@ -118,8 +116,8 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 7px;
-      transition: background-color 0.15s ease, transform 0.1s ease;
+      gap: 6px;
+      transition: background-color 0.15s ease;
     }
 
     .btn-sage:hover {
@@ -130,7 +128,7 @@
       background-color: transparent;
       color: var(--ink-primary);
       border: 1px solid var(--border-hairline);
-      padding: 7px 14px;
+      padding: 7px 13px;
       border-radius: var(--radius-sm);
       font-size: 12.5px;
       font-weight: 500;
@@ -148,39 +146,44 @@
       border-color: var(--ink-secondary);
     }
 
-    /* Hero Title Section */
+    .btn-outline:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+
+    /* Compact Header + Series Switcher */
     .hero-header {
-      padding: 44px 0 32px;
+      padding: 32px 0 24px;
+      border-bottom: 1px solid var(--border-hairline);
     }
 
     .hero-eyebrow {
-      font-size: 12px;
+      font-size: 11.5px;
       text-transform: uppercase;
       letter-spacing: 0.08em;
       color: var(--ink-secondary);
-      margin-bottom: 14px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
     .hero-title {
-      font-size: clamp(36px, 5.2vw, 64px);
+      font-size: clamp(28px, 4vw, 48px);
       font-weight: 400;
-      line-height: 1.04;
-      letter-spacing: -0.035em;
+      line-height: 1.08;
+      letter-spacing: -0.03em;
       color: var(--ink-primary);
-      max-width: 920px;
+      max-width: 860px;
     }
 
-    /* Series Switcher Tabs */
     .series-switcher-wrap {
-      margin-top: 28px;
+      margin-top: 22px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
     }
 
@@ -197,7 +200,7 @@
     .series-tab {
       background: transparent;
       border: none;
-      padding: 8px 15px;
+      padding: 8px 14px;
       font-family: var(--font-sans);
       font-size: 12.5px;
       font-weight: 500;
@@ -226,7 +229,6 @@
       border-radius: 3px;
       background-color: var(--bg-surface);
       color: var(--ink-secondary);
-      font-weight: 500;
     }
 
     .series-tab.active .series-count-pill {
@@ -234,228 +236,27 @@
       color: var(--accent-sage);
     }
 
-    /* Editorial Banner Frame */
-    .hero-banner {
-      width: 100%;
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
-      border-radius: var(--radius-sm);
-      padding: 28px 32px;
-      display: grid;
-      grid-template-columns: 1.5fr 1fr;
-      gap: 28px;
-      align-items: center;
-      margin-bottom: 44px;
-    }
-
-    .banner-quote {
-      font-size: 17px;
-      line-height: 1.48;
-      color: var(--ink-primary);
-      letter-spacing: -0.015em;
-    }
-
-    .banner-quote span {
-      color: var(--ink-secondary);
-    }
-
-    .banner-meta {
-      border-left: 1px solid var(--border-hairline);
-      padding-left: 26px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .banner-meta-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 12.5px;
-      color: var(--ink-secondary);
-      gap: 12px;
-    }
-
-    .banner-meta-row strong {
-      color: var(--ink-primary);
-      font-weight: 500;
-      text-align: right;
-    }
-
-    /* Asymmetric Editorial Split (Manifesto + KPIs) */
-    .editorial-split {
-      display: grid;
-      grid-template-columns: 1.38fr 1fr;
-      gap: 44px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid var(--border-hairline);
-    }
-
-    .manifesto-lead {
-      font-size: clamp(23px, 2.7vw, 31px);
-      font-weight: 400;
-      line-height: 1.24;
-      letter-spacing: -0.025em;
-      color: var(--ink-primary);
-    }
-
-    .manifesto-lead .muted {
-      color: var(--ink-secondary);
-    }
-
-    .kpi-column {
-      border-left: 1px solid var(--border-hairline);
-      padding-left: 36px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .kpi-header {
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--ink-primary);
-      margin-bottom: 20px;
-    }
-
-    .kpi-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 24px 20px;
-    }
-
-    .kpi-number {
-      font-size: 32px;
-      font-weight: 400;
-      letter-spacing: -0.03em;
-      line-height: 1.05;
-      color: var(--ink-primary);
-      margin-bottom: 4px;
-    }
-
-    .kpi-label {
-      font-size: 12px;
-      line-height: 1.35;
-      color: var(--ink-secondary);
-    }
-
-    /* Featured Production & Quick Actions Row */
-    .production-strip {
-      display: grid;
-      grid-template-columns: 1.38fr 1fr;
-      gap: 44px;
-      padding: 40px 0;
-      border-bottom: 1px solid var(--border-hairline);
-      align-items: center;
-    }
-
-    .featured-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
-      border-radius: var(--radius-md);
-      padding: 24px 28px;
+    .header-quick-tools {
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-      cursor: pointer;
-      transition: background-color 0.15s ease, border-color 0.15s ease;
-    }
-
-    .featured-card:hover {
-      background-color: var(--bg-surface-hover);
-      border-color: var(--ink-secondary);
-    }
-
-    .play-circle {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      border: 1px solid var(--ink-primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      transition: background-color 0.15s ease, color 0.15s ease;
-    }
-
-    .featured-card:hover .play-circle {
-      background-color: var(--accent-sage);
-      border-color: var(--accent-sage);
-      color: #FFFFFF;
-    }
-
-    .featured-info h3 {
-      font-size: 16px;
-      font-weight: 500;
-      margin-bottom: 4px;
-      letter-spacing: -0.01em;
-    }
-
-    .featured-info p {
-      font-size: 13px;
-      color: var(--ink-secondary);
-    }
-
-    .production-side {
-      padding-left: 36px;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .production-side h4 {
-      font-size: 17px;
-      font-weight: 500;
-      letter-spacing: -0.01em;
-    }
-
-    .production-side p {
-      font-size: 13px;
-      color: var(--ink-secondary);
-      line-height: 1.45;
-    }
-
-    .social-pills {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 4px;
+      gap: 8px;
       flex-wrap: wrap;
     }
 
-    .circle-icon-btn {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background-color: var(--ink-primary);
-      color: var(--bg-paper);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      font-size: 12px;
-      transition: background-color 0.15s ease;
-    }
-
-    .circle-icon-btn:hover {
-      background-color: var(--accent-sage);
-    }
-
-    /* Filter & Search Controls */
+    /* Controls: Filter & Search */
     .controls-bar {
-      padding: 32px 0 24px;
+      padding: 22px 0 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
     }
 
     .filter-group {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       flex-wrap: wrap;
     }
 
@@ -463,7 +264,7 @@
       background: transparent;
       border: 1px solid var(--border-hairline);
       color: var(--ink-secondary);
-      padding: 6px 13px;
+      padding: 6px 12px;
       border-radius: var(--radius-sm);
       font-size: 12.5px;
       cursor: pointer;
@@ -483,8 +284,8 @@
 
     .search-box {
       position: relative;
-      min-width: 260px;
-      flex: 0 1 320px;
+      min-width: 240px;
+      flex: 0 1 300px;
     }
 
     .search-box input {
@@ -513,54 +314,46 @@
       pointer-events: none;
     }
 
-    /* Bottom Matrix Grid (2 Columns of Script Cards + 1 Sticky Index Column) */
+    /* Main Matrix: 2-Column Script Cards + Sticky Index */
     .catalog-matrix {
       display: grid;
-      grid-template-columns: 2.15fr 1fr;
-      gap: 44px;
+      grid-template-columns: 2.2fr 1fr;
+      gap: 38px;
       align-items: start;
     }
 
     .scripts-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 32px 28px;
+      gap: 28px 24px;
     }
 
     .script-card {
       border-top: 1px solid var(--border-hairline);
-      padding-top: 20px;
+      padding-top: 18px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      gap: 14px;
-      transition: opacity 0.2s ease;
+      gap: 12px;
     }
 
-    /* Cancelled Card Styling */
     .script-card.is-cancelled {
       background-color: var(--accent-cancel-bg);
       border: 1px dashed #B9B5AA;
       border-top: 2px solid var(--accent-cancel);
       border-radius: var(--radius-sm);
-      padding: 18px 18px 16px;
+      padding: 16px;
       opacity: 0.78;
-    }
-
-    .script-card.is-cancelled:hover {
-      opacity: 0.94;
     }
 
     .script-card.is-cancelled .script-title {
       text-decoration: line-through;
-      text-decoration-thickness: 1.5px;
       text-decoration-color: var(--accent-cancel);
       color: var(--ink-secondary);
     }
 
     .script-card.is-cancelled .script-excerpt {
       text-decoration: line-through;
-      text-decoration-color: rgba(132, 130, 123, 0.7);
       color: var(--ink-muted);
     }
 
@@ -571,25 +364,33 @@
       padding: 6px 10px;
       border-radius: var(--radius-sm);
       line-height: 1.35;
+      margin-top: 8px;
     }
 
     .card-top-row {
       display: flex;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
     }
 
-    .geo-icon {
-      width: 34px;
-      height: 34px;
-      color: var(--ink-primary);
-      flex-shrink: 0;
+    .script-meta-tag {
+      font-size: 11.5px;
+      color: var(--ink-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
     }
 
-    .script-card.is-cancelled .geo-icon {
-      color: var(--accent-cancel);
-      opacity: 0.7;
+    .series-pill {
+      font-size: 10.5px;
+      font-weight: 500;
+      color: var(--ink-secondary);
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      padding: 1px 6px;
+      border-radius: 3px;
     }
 
     .status-badge {
@@ -601,8 +402,6 @@
       color: var(--ink-secondary);
       background-color: var(--bg-surface);
       cursor: pointer;
-      user-select: none;
-      transition: all 0.15s ease;
       white-space: nowrap;
     }
 
@@ -619,35 +418,13 @@
       cursor: default;
     }
 
-    .script-meta-tag {
-      font-size: 11.5px;
-      color: var(--ink-muted);
-      letter-spacing: 0.02em;
-      margin-bottom: 4px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .series-pill {
-      display: inline-block;
-      font-size: 10.5px;
-      font-weight: 500;
-      color: var(--ink-secondary);
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
-      padding: 1px 6px;
-      border-radius: 3px;
-    }
-
     .script-title {
-      font-size: 18px;
+      font-size: 17.5px;
       font-weight: 500;
       line-height: 1.25;
       letter-spacing: -0.015em;
       color: var(--ink-primary);
-      margin-bottom: 8px;
+      margin: 6px 0 8px;
     }
 
     .script-excerpt {
@@ -660,30 +437,11 @@
       overflow: hidden;
     }
 
-    .script-author-tag {
-      font-size: 12px;
-      color: var(--ink-primary);
-      margin-top: 10px;
-      padding-top: 8px;
-      border-top: 1px dashed var(--border-hairline);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-
-    .script-author-tag span {
-      color: var(--ink-secondary);
-      font-size: 11.5px;
-    }
-
-    /* Drive Download Strip inside Card */
+    /* Drive Strip */
     .drive-strip {
       display: flex;
       align-items: center;
       gap: 6px;
-      margin-top: 2px;
     }
 
     .btn-drive-download {
@@ -691,17 +449,17 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 7px;
-      padding: 7px 11px;
+      gap: 6px;
+      padding: 7px 10px;
       border-radius: var(--radius-sm);
       font-size: 12px;
       font-weight: 500;
       text-decoration: none;
       cursor: pointer;
-      transition: all 0.15s ease;
       border: 1px solid var(--accent-sage);
       background-color: var(--accent-sage);
       color: #F7F7F4;
+      transition: background-color 0.15s ease;
     }
 
     .btn-drive-download:hover {
@@ -717,7 +475,6 @@
     .btn-drive-download.is-empty:hover {
       border-color: var(--ink-primary);
       color: var(--ink-primary);
-      background-color: var(--bg-surface-hover);
     }
 
     .btn-drive-icon {
@@ -732,7 +489,6 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      transition: all 0.15s ease;
     }
 
     .btn-drive-icon:hover {
@@ -741,81 +497,11 @@
       background-color: var(--bg-surface);
     }
 
-    /* Inline Copy & Hashtags Drawer inside Card */
-    .social-drawer {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-hairline);
-      border-radius: var(--radius-sm);
-      padding: 12px;
-      display: none;
-      flex-direction: column;
-      gap: 10px;
-      font-size: 12.5px;
-    }
-
-    .social-drawer.open {
-      display: flex;
-    }
-
-    .social-block-label {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--ink-secondary);
-      margin-bottom: 4px;
-    }
-
-    .mini-copy-btn {
-      background: var(--bg-paper);
-      border: 1px solid var(--border-hairline);
-      border-radius: 3px;
-      padding: 2px 7px;
-      font-size: 11px;
-      color: var(--ink-primary);
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-
-    .mini-copy-btn:hover {
-      border-color: var(--accent-sage);
-      color: var(--accent-sage);
-    }
-
-    .social-cover-pill {
-      background-color: var(--bg-paper);
-      border-left: 2.5px solid var(--accent-sage);
-      padding: 6px 9px;
-      font-weight: 500;
-      color: var(--ink-primary);
-      font-size: 12.5px;
-    }
-
-    .social-copy-text {
-      color: var(--ink-primary);
-      line-height: 1.45;
-      white-space: pre-line;
-      font-size: 12px;
-      max-height: 120px;
-      overflow-y: auto;
-      padding-right: 4px;
-    }
-
-    .social-hashtags-text {
-      color: var(--accent-sage);
-      font-weight: 500;
-      font-size: 11.5px;
-      line-height: 1.4;
-      word-break: break-word;
-    }
-
+    /* Card Quick Actions */
     .card-actions {
       display: flex;
       align-items: center;
-      gap: 7px;
-      margin-top: 2px;
+      gap: 6px;
       flex-wrap: wrap;
     }
 
@@ -852,32 +538,44 @@
       border-color: var(--ink-secondary);
     }
 
-    /* Right Index Column */
+    /* Right Sticky Index Column */
     .editorial-sidebar {
       border-left: 1px solid var(--border-hairline);
-      padding-left: 36px;
+      padding-left: 32px;
       position: sticky;
-      top: 24px;
+      top: 20px;
+    }
+
+    .sidebar-header-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 10px;
     }
 
     .sidebar-title {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 500;
       letter-spacing: -0.015em;
-      margin-bottom: 12px;
+    }
+
+    .sidebar-progress {
+      font-size: 12px;
+      color: var(--accent-sage);
+      font-weight: 500;
     }
 
     .sidebar-desc {
-      font-size: 13px;
+      font-size: 12.5px;
       color: var(--ink-secondary);
-      line-height: 1.5;
-      margin-bottom: 24px;
+      line-height: 1.45;
+      margin-bottom: 18px;
     }
 
     .sidebar-list {
       list-style: none;
       border-top: 1px solid var(--border-hairline);
-      margin-bottom: 24px;
+      margin-bottom: 18px;
     }
 
     .sidebar-list li {
@@ -888,7 +586,7 @@
       width: 100%;
       background: none;
       border: none;
-      padding: 11px 0;
+      padding: 10px 0;
       text-align: left;
       font-family: var(--font-sans);
       font-size: 12.5px;
@@ -898,7 +596,6 @@
       justify-content: space-between;
       align-items: center;
       gap: 10px;
-      transition: color 0.15s ease;
     }
 
     .sidebar-list button:hover {
@@ -920,14 +617,14 @@
 
     /* Footer */
     .editorial-footer {
-      margin-top: 56px;
-      padding-top: 24px;
+      margin-top: 48px;
+      padding-top: 20px;
       border-top: 1px solid var(--border-hairline);
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 16px;
+      gap: 14px;
       font-size: 12.5px;
       color: var(--ink-secondary);
     }
@@ -938,11 +635,7 @@
       border-bottom: 1px solid var(--border-hairline);
     }
 
-    .editorial-footer a:hover {
-      border-color: var(--ink-primary);
-    }
-
-    /* Script Reader & Teleprompter Modal */
+    /* Modal Backdrop & Panel */
     .modal-backdrop {
       position: fixed;
       inset: 0;
@@ -950,7 +643,7 @@
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 16px;
       z-index: 1000;
     }
 
@@ -972,38 +665,44 @@
     }
 
     .modal-header {
-      padding: 20px 28px;
+      padding: 18px 24px;
       border-bottom: 1px solid var(--border-hairline);
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
     }
 
     .modal-header h2 {
-      font-size: 21px;
+      font-size: 20px;
       font-weight: 500;
       letter-spacing: -0.02em;
       margin-top: 4px;
     }
 
+    .modal-nav-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
     .modal-close {
       background: transparent;
       border: 1px solid var(--border-hairline);
-      width: 34px;
-      height: 34px;
+      width: 32px;
+      height: 32px;
       border-radius: var(--radius-sm);
       font-size: 18px;
       cursor: pointer;
       color: var(--ink-primary);
-      flex-shrink: 0;
     }
 
     .modal-tabs {
       display: flex;
       border-bottom: 1px solid var(--border-hairline);
       background-color: var(--bg-surface);
-      padding: 0 28px;
+      padding: 0 24px;
       gap: 20px;
       overflow-x: auto;
     }
@@ -1012,7 +711,7 @@
       background: none;
       border: none;
       border-bottom: 2px solid transparent;
-      padding: 12px 2px;
+      padding: 11px 2px;
       font-family: var(--font-sans);
       font-size: 12.5px;
       font-weight: 500;
@@ -1027,23 +726,35 @@
     }
 
     .modal-body {
-      padding: 26px 28px;
+      padding: 22px 24px;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 16px;
+    }
+
+    .full-script-text {
+      font-size: 16px;
+      line-height: 1.75;
+      color: var(--ink-primary);
+      background-color: var(--bg-surface);
+      padding: 20px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-hairline);
+      white-space: pre-line;
+      user-select: all;
     }
 
     .script-beats {
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 12px;
     }
 
     .beat-block {
       background-color: var(--bg-surface);
       border-left: 3px solid var(--accent-sage);
-      padding: 14px 18px;
+      padding: 12px 16px;
       border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
     }
 
@@ -1053,34 +764,23 @@
       letter-spacing: 0.06em;
       color: var(--accent-sage);
       font-weight: 600;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     .beat-text {
-      font-size: 15.5px;
-      line-height: 1.65;
+      font-size: 15px;
+      line-height: 1.6;
       color: var(--ink-primary);
-    }
-
-    .full-script-text {
-      font-size: 16.5px;
-      line-height: 1.75;
-      color: var(--ink-primary);
-      background-color: var(--bg-surface);
-      padding: 22px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-hairline);
-      white-space: pre-line;
     }
 
     .modal-social-box {
       background-color: var(--bg-surface);
       border: 1px solid var(--border-hairline);
       border-radius: var(--radius-sm);
-      padding: 16px 18px;
+      padding: 14px 16px;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
 
     .modal-social-header {
@@ -1091,27 +791,42 @@
     }
 
     .modal-social-header span {
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       color: var(--ink-secondary);
     }
 
+    .mini-copy-btn {
+      background: var(--bg-paper);
+      border: 1px solid var(--border-hairline);
+      border-radius: 3px;
+      padding: 3px 8px;
+      font-size: 11.5px;
+      color: var(--ink-primary);
+      cursor: pointer;
+    }
+
+    .mini-copy-btn:hover {
+      border-color: var(--accent-sage);
+      color: var(--accent-sage);
+    }
+
     .modal-footer {
-      padding: 16px 28px;
+      padding: 14px 24px;
       border-top: 1px solid var(--border-hairline);
       background-color: var(--bg-surface);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 10px;
       flex-wrap: wrap;
     }
 
     /* Drive Link Config Modal */
     .drive-modal-panel {
-      max-width: 520px;
+      max-width: 500px;
     }
 
     .input-editorial {
@@ -1147,12 +862,12 @@
     }
 
     .tp-controls {
-      padding: 16px 28px;
+      padding: 14px 24px;
       border-bottom: 1px solid #2C2B29;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
       flex-wrap: wrap;
       background-color: #181816;
     }
@@ -1160,7 +875,7 @@
     .tp-control-group {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
       font-size: 13px;
       flex-wrap: wrap;
     }
@@ -1169,10 +884,15 @@
       background-color: #262523;
       color: #F2F1EC;
       border: 1px solid #3B3A36;
-      padding: 7px 14px;
+      padding: 7px 13px;
       border-radius: var(--radius-sm);
       font-size: 12.5px;
       cursor: pointer;
+    }
+
+    .tp-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
     }
 
     .tp-btn.primary {
@@ -1211,7 +931,7 @@
       white-space: pre-line;
     }
 
-    /* Toast Notification */
+    /* Toast */
     .toast {
       position: fixed;
       bottom: 24px;
@@ -1233,48 +953,33 @@
       transform: translateY(0);
     }
 
-    /* Responsive Adjustments */
     @media (max-width: 960px) {
       .editorial-sheet {
-        padding: 24px 24px 44px;
+        padding: 22px 20px 40px;
       }
-
-      .hero-banner,
-      .editorial-split,
-      .production-strip,
       .catalog-matrix {
         grid-template-columns: 1fr;
         gap: 28px;
       }
-
-      .banner-meta,
-      .kpi-column,
-      .production-side,
       .editorial-sidebar {
         border-left: none;
         padding-left: 0;
         border-top: 1px solid var(--border-hairline);
-        padding-top: 24px;
-      }
-
-      .editorial-sidebar {
+        padding-top: 22px;
         position: static;
       }
     }
 
     @media (max-width: 640px) {
       body {
-        padding: 12px 10px 40px;
+        padding: 10px 8px 36px;
       }
-
       .editorial-sheet {
-        padding: 20px 18px 36px;
+        padding: 18px 16px 32px;
       }
-
       .scripts-grid {
         grid-template-columns: 1fr;
       }
-
       .tp-text {
         font-size: 26px;
       }
@@ -1284,16 +989,13 @@
 <body>
 
   <main class="editorial-sheet">
-    <!-- Top Header Navigation -->
+    <!-- Top Header -->
     <header class="topbar">
       <div class="brand-mark">
         <span class="brand-dot"></span>
-        <span>Agencia Reinventa · Archivo de Guiones</span>
+        <span>Agencia Reinventa · Repositorio de Guiones</span>
       </div>
       <nav class="nav-links">
-        <a href="#manifiesto">Enfoque</a>
-        <a href="#repositorio">Guiones</a>
-        <a href="#indice">Índice de Series</a>
         <a href="https://agencireinventa.online" target="_blank" rel="noopener">agencireinventa.online</a>
         <a href="https://www.instagram.com/agencia.reinventa" target="_blank" rel="noopener" class="btn-sage">
           @agencia.reinventa
@@ -1301,7 +1003,7 @@
       </nav>
     </header>
 
-    <!-- Hero Title & Series Switcher -->
+    <!-- Compact Hero & Series Switcher -->
     <section class="hero-header">
       <div class="hero-eyebrow" id="heroEyebrow">
         <span>Serie Editorial 01 · Reels Verticales</span>
@@ -1310,7 +1012,6 @@
       </div>
       <h1 class="hero-title" id="heroTitle">Nunca estás verdaderamente listo, pero hay que accionar.</h1>
 
-      <!-- Series Selector -->
       <div class="series-switcher-wrap">
         <div class="series-tabs" role="tablist" aria-label="Selector de series editoriales">
           <button type="button" class="series-tab active" data-series="accionar" onclick="switchSeries('accionar')">
@@ -1319,103 +1020,17 @@
           </button>
           <button type="button" class="series-tab" data-series="narrativa" onclick="switchSeries('narrativa')">
             <span>Serie 02 · Narrativa</span>
-            <span class="series-count-pill">6 guiones</span>
+            <span class="series-count-pill">8 guiones</span>
           </button>
           <button type="button" class="series-tab" data-series="todas" onclick="switchSeries('todas')">
             <span>Todas las series</span>
-            <span class="series-count-pill">11 activos</span>
+            <span class="series-count-pill">13 activos</span>
           </button>
         </div>
-        <div style="font-size: 12px; color: var(--ink-secondary);" id="seriesSubtitleTag">
-          Mostrando Serie 01 · 4 videos listos en Google Drive
-        </div>
-      </div>
-    </section>
 
-    <!-- Editorial Context Banner -->
-    <section class="hero-banner" aria-label="Contexto de la serie">
-      <div class="banner-quote" id="bannerQuote">
-        «Lo más importante no es tener un estudio ni luces perfectas, sino <span>el valor que aportas a tu comunidad</span> y la decisión de entrar a la acción hoy mismo.»
-      </div>
-      <div class="banner-meta">
-        <div class="banner-meta-row">
-          <span>Proyecto</span>
-          <strong>Agencia de Marketing Reinventa</strong>
-        </div>
-        <div class="banner-meta-row">
-          <span>Canal principal</span>
-          <strong>Instagram Reels (@agencia.reinventa)</strong>
-        </div>
-        <div class="banner-meta-row">
-          <span>Referentes</span>
-          <strong id="bannerAuthors">Seth Godin · David Ogilvy · Gary Vee</strong>
-        </div>
-        <div class="banner-meta-row">
-          <span>Materiales en Drive</span>
-          <strong id="bannerStatusCount">4 videos listos · 2 cancelados</strong>
-        </div>
-      </div>
-    </section>
-
-    <!-- Asymmetric Editorial Split: Thesis & Production Metrics -->
-    <section id="manifiesto" class="editorial-split">
-      <div>
-        <h2 class="manifesto-lead" id="manifestoLead">
-          Acompañamos a marcas y creadores a salir de la planeación eterna
-          <span class="muted">mediante contenido con criterio, preguntas poderosas y conexión humana real,</span>
-          dejando atrás las excusas de producción de la vieja escuela.
-        </h2>
-      </div>
-      <div class="kpi-column">
-        <div class="kpi-header" id="kpiHeaderTitle">Estado de Producción · Serie 01</div>
-        <div class="kpi-grid">
-          <div>
-            <div class="kpi-number" id="kpiActiveCount">05</div>
-            <div class="kpi-label" id="kpiActiveLabel">guiones activos<br>(+2 cancelados)</div>
-          </div>
-          <div>
-            <div class="kpi-number" id="recordedCounter">4 / 5</div>
-            <div class="kpi-label">videos listos<br>en Google Drive</div>
-          </div>
-          <div>
-            <div class="kpi-number" id="totalWords">~890</div>
-            <div class="kpi-label" id="wordsSubLabel">palabras totales<br>(guiones activos)</div>
-          </div>
-          <div>
-            <div class="kpi-number" id="pendingCounter">01</div>
-            <div class="kpi-label">guion pendiente<br>por grabar</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Featured Teleprompter & Quick Export Strip -->
-    <section class="production-strip">
-      <div class="featured-card" id="featuredCard" role="button" tabindex="0">
-        <div class="play-circle" aria-hidden="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <polygon points="6,4 20,12 6,20"></polygon>
-          </svg>
-        </div>
-        <div class="featured-info">
-          <h3 id="featuredTitle">Abrir Teleprompter · Serie 01</h3>
-          <p id="featuredDesc">Inicia el modo lectura en pantalla completa desde el siguiente guion pendiente por grabar.</p>
-        </div>
-      </div>
-
-      <div class="production-side">
-        <h4>Herramientas de Rodaje y Publicación</h4>
-        <p>Descarga los videos terminados desde Google Drive, abre cualquier guion en modo Teleprompter y copia con un clic el texto de portada, el copy y los hashtags.</p>
-        <div class="social-pills">
-          <button type="button" class="btn-outline" id="downloadAllBtn">
-            Descargar serie (.TXT)
-          </button>
-          <a href="https://www.instagram.com/agencia.reinventa" target="_blank" rel="noopener" class="circle-icon-btn" title="Instagram Agencia Reinventa" aria-label="Instagram">
-            IG
-          </a>
-          <a href="https://agencireinventa.online" target="_blank" rel="noopener" class="circle-icon-btn" title="Sitio Web Agencia Reinventa" aria-label="Sitio Web">
-            ↗
-          </a>
+        <div class="header-quick-tools">
+          <button type="button" class="btn-outline" id="openNextPendingBtn">Teleprompter</button>
+          <button type="button" class="btn-outline" id="downloadAllBtn">Exportar .TXT</button>
         </div>
       </div>
     </section>
@@ -1443,21 +1058,21 @@
       <div class="scripts-grid" id="scriptsGrid"></div>
 
       <aside id="indice" class="editorial-sidebar">
-        <h3 class="sidebar-title" id="sidebarTitle">Índice · Serie 01</h3>
+        <div class="sidebar-header-row">
+          <h3 class="sidebar-title" id="sidebarTitle">Índice · Serie 01</h3>
+          <span class="sidebar-progress" id="sidebarProgress">4 / 5 listos</span>
+        </div>
         <p class="sidebar-desc" id="sidebarDesc">
-          Los Reels 1, 2, 3 y 5 ya cuentan con video descargable en Google Drive. Los Reels 4 y 6 fueron cancelados por no aportar valor; el Reel 7 cierra como manifiesto sin producción.
+          Haz clic en cualquier episodio para abrirlo, copiar el texto plano o navegar entre guiones.
         </p>
         <ul class="sidebar-list" id="sidebarIndex"></ul>
-        <button type="button" class="btn-sage" id="openNextPendingBtn" style="width: 100%;">
-          Grabar siguiente pendiente
-        </button>
       </aside>
     </section>
 
     <!-- Footer -->
     <footer class="editorial-footer">
       <div>
-        <strong>Agencia de Marketing Reinventa</strong> · Repositorio interno de producción audiovisual
+        <strong>Agencia de Marketing Reinventa</strong> · Archivo de producción
       </div>
       <div>
         <a href="https://agencireinventa.online" target="_blank" rel="noopener">agencireinventa.online</a>
@@ -1475,12 +1090,16 @@
           <div class="script-meta-tag" id="modalMeta">Serie 01 · Reel 01</div>
           <h2 id="modalTitle">Título del Reel</h2>
         </div>
-        <button type="button" class="modal-close" id="closeModalBtn" aria-label="Cerrar ventana">×</button>
+        <div class="modal-nav-group">
+          <button type="button" class="btn-outline" id="modalPrevBtn" title="Guion anterior">← Anterior</button>
+          <button type="button" class="btn-outline" id="modalNextBtn" title="Siguiente guion">Siguiente →</button>
+          <button type="button" class="modal-close" id="closeModalBtn" aria-label="Cerrar ventana">×</button>
+        </div>
       </div>
 
       <div class="modal-tabs" role="tablist">
-        <button type="button" class="modal-tab active" data-tab="beats">Guion estructurado</button>
-        <button type="button" class="modal-tab" data-tab="full">Texto corrido</button>
+        <button type="button" class="modal-tab active" data-tab="full">Texto plano (listo para copiar)</button>
+        <button type="button" class="modal-tab" data-tab="beats">Por bloques</button>
         <button type="button" class="modal-tab" data-tab="social">Portada, Copy & Hashtags</button>
       </div>
 
@@ -1488,14 +1107,13 @@
 
       <div class="modal-footer">
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <button type="button" class="btn-outline" id="modalCopyBtn">Copiar guion</button>
+          <button type="button" class="btn-sage" id="modalCopyBtn">Copiar texto plano</button>
           <button type="button" class="btn-outline" id="modalCopyPostBtn">Copiar Copy + Hashtags</button>
           <a href="#" target="_blank" rel="noopener" class="btn-outline" id="modalDriveBtn">Descargar video · Drive</a>
-          <button type="button" class="btn-outline" id="modalDownloadBtn">Descargar .TXT</button>
         </div>
         <div style="display: flex; gap: 8px; flex-wrap: wrap;">
           <button type="button" class="btn-outline" id="modalToggleStatusBtn">Marcar como grabado</button>
-          <button type="button" class="btn-sage" id="modalTeleprompterBtn">Abrir Teleprompter</button>
+          <button type="button" class="btn-outline" id="modalTeleprompterBtn">Teleprompter</button>
         </div>
       </div>
     </div>
@@ -1513,7 +1131,7 @@
       </div>
       <div class="modal-body">
         <p style="font-size: 13px; color: var(--ink-secondary); line-height: 1.5;">
-          Pega el enlace compartido de Google Drive para este Reel. El sistema generará automáticamente el enlace de descarga directa y lo guardará en este navegador.
+          Pega el enlace compartido de Google Drive para este Reel. Se generará automáticamente el botón de descarga directa.
         </p>
         <div>
           <label for="driveUrlInput" style="display:block; font-size: 11.5px; font-weight: 500; margin-bottom: 6px; color: var(--ink-primary);">
@@ -1533,14 +1151,16 @@
   <div class="teleprompter-overlay" id="teleprompterOverlay" role="dialog" aria-modal="true" aria-label="Teleprompter">
     <div class="tp-controls">
       <div class="tp-control-group">
+        <button type="button" class="tp-btn" id="tpPrevBtn">← Anterior</button>
+        <button type="button" class="tp-btn" id="tpNextBtn">Siguiente →</button>
         <strong id="tpTitle" style="font-weight: 500;">Reel 01</strong>
         <span style="color: #84827B;" id="tpTimer">00:00</span>
       </div>
       <div class="tp-control-group">
-        <button type="button" class="tp-btn primary" id="tpPlayPauseBtn">Iniciar desplazamiento</button>
+        <button type="button" class="tp-btn primary" id="tpPlayPauseBtn">Iniciar</button>
         <label style="display:flex; align-items:center; gap:6px; font-size:12px; color:#C8C6BE;">
-          Velocidad
-          <input type="range" id="tpSpeed" min="1" max="8" value="3" style="width: 75px;" />
+          Vel.
+          <input type="range" id="tpSpeed" min="1" max="8" value="3" style="width: 70px;" />
         </label>
         <button type="button" class="tp-btn" id="tpFontMinus">A−</button>
         <button type="button" class="tp-btn" id="tpFontPlus">A+</button>
@@ -1562,7 +1182,6 @@
     // ENLACES DE GOOGLE DRIVE PRECARGADOS
     // =========================================================================
     const DRIVE_LINKS = {
-      // Serie 01 · Accionar
       reel1: "https://drive.google.com/file/d/1QUtwYqutXuecr6SE2jYZ6AFzVxMXkCNH/view?usp=drivesdk",
       reel2: "https://drive.google.com/file/d/11PTgIstMa9ZWIihCLhGUEAoL-FmihkUm/view?usp=drivesdk",
       reel3: "https://drive.google.com/file/d/1jYdSa7x_bL6tApxyy9wqGUQ82i71D5ja/view?usp=drivesdk",
@@ -1570,45 +1189,34 @@
       reel5: "https://drive.google.com/file/d/1hIQ_K4pduwgnXV20VS8hqZNNFfks37Un/view?usp=drivesdk",
       reel6: "",
       reel7: "",
-      // Serie 02 · Narrativa
       s2_reel1: "",
       s2_reel2: "",
       s2_reel3: "",
-      s2_reel4: "",
-      s2_reel5: "",
-      s2_reel6: ""
+      s2_reel4: "https://drive.google.com/file/d/1BHh7acdne7Gp6EXNBL-PL6VYQyxL67zq/view?usp=sharing",
+      s2_reel5: "https://drive.google.com/file/d/1iqIK9_Xn6Q51MuVeLn6JkEE8Qx1Uv3JB/view?usp=sharing",
+      s2_reel6: "https://drive.google.com/file/d/1PGxF2MXIdoHvIzjtgsZIPEc0SEgOcEHy/view?usp=sharing",
+      s2_reel7: "",
+      s2_reel8: ""
     };
 
     const SERIES_CONFIG = {
       accionar: {
         eyebrow: ["Serie Editorial 01 · Reels Verticales", "Criterio, Pertinencia y Acción"],
         title: "Nunca estás verdaderamente listo, pero hay que accionar.",
-        quote: "«Lo más importante no es tener un estudio ni luces perfectas, sino <span>el valor que aportas a tu comunidad</span> y la decisión de entrar a la acción hoy mismo.»",
-        authors: "Seth Godin · David Ogilvy · Gary Vee",
-        manifesto: 'Acompañamos a marcas y creadores a salir de la planeación eterna <span class="muted">mediante contenido con criterio, preguntas poderosas y conexión humana real,</span> dejando atrás las excusas de producción de la vieja escuela.',
-        kpiHeader: "Estado de Producción · Serie 01",
         sidebarTitle: "Índice · Serie 01",
-        sidebarDesc: "Los Reels 1, 2, 3 y 5 ya cuentan con video descargable en Google Drive. Los Reels 4 y 6 fueron cancelados por no aportar valor; el Reel 7 cierra como manifiesto sin producción."
+        sidebarDesc: "Reels 1, 2, 3 y 5 ya tienen video descargable en Drive. Reels 4 y 6 están cancelados; Reel 7 es el manifiesto sin producción."
       },
       narrativa: {
-        eyebrow: ["Serie Editorial 02 · Reels Verticales", "Storytelling Aplicado a Profesionistas"],
+        eyebrow: ["Serie Editorial 02 · Reels Verticales", "Storytelling & Consultoría"],
         title: "La narrativa en redes: el as bajo la manga de todo especialista.",
-        quote: "«No tienes que ser experto en marketing digital para comunicar con fuerza; <span>cuando el cliente es el héroe y tú eres el guía,</span> tu experiencia cobra sentido.»",
-        authors: "Donald Miller · Robert McKee · Annette Simmons",
-        manifesto: 'Herramientas prácticas para profesionistas que dominan su oficio <span class="muted">pero sienten que no logran traducir su experiencia en un discurso claro y congruente,</span> conectando desde el contraste, la cotidianidad y la verdad.',
-        kpiHeader: "Estado de Producción · Serie 02",
         sidebarTitle: "Índice · Serie 02",
-        sidebarDesc: "Seis guiones aprobados (~115 palabras cada uno) construidos sobre los principios de Donald Miller, Robert McKee y Annette Simmons para especialistas que buscan comunicar sin tecnicismos."
+        sidebarDesc: "8 guiones aprobados sobre narrativa aplicada, traducción de discurso técnico y congruencia en cámara."
       },
       todas: {
         eyebrow: ["Archivo Completo · Agencia Reinventa", "Series 01 y 02"],
         title: "Repositorio integral de guiones para redes sociales.",
-        quote: "«Primero rompes la parálisis de producir perfecto; después <span>ordenas tu discurso con narrativa y congruencia</span> para sostener una marca viva.»",
-        authors: "Godin · Ogilvy · Gary Vee · Miller · McKee · Simmons",
-        manifesto: 'Dos series complementarias diseñadas para pasar de la duda a la publicación constante <span class="muted">y transformar el conocimiento técnico de profesionistas y marcas</span> en conversaciones humanas que generan confianza.',
-        kpiHeader: "Estado Global · Todas las Series",
-        sidebarTitle: "Índice General · 13 Guiones",
-        sidebarDesc: "Vista unificada con los 5 guiones activos de la Serie 01 (más 2 cancelados) y los 6 guiones de la Serie 02 sobre narrativa aplicada."
+        sidebarTitle: "Índice General · 15 Guiones",
+        sidebarDesc: "Vista unificada con los guiones activos de la Serie 01 y los 8 guiones aprobados de la Serie 02."
       }
     };
 
@@ -1632,7 +1240,6 @@ Como plantea Seth Godin, la gente no compra productos: compra relaciones, histor
 
 Si hoy tienes un teléfono en la mano y una idea honesta, ¿qué es lo que realmente te está deteniendo? Te leo en los comentarios.`,
         hashtags: "#CreacionDeContenido #MarketingDigital #Emprendedores #MarcaPersonal #EstrategiaDeContenidos",
-        icon: `<svg class="geo-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="15" cy="18" r="8"/><circle cx="21" cy="18" r="8"/></svg>`,
         beats: [
           {
             label: "01 · Gancho & Tesis",
@@ -1666,7 +1273,6 @@ David Ogilvy lo dejó claro: el consumidor no es tonto y hay que hablarle de lo 
 
 ¿Qué le estás solucionando hoy a tu cliente (muy diferente a qué le estás vendiendo)? Respóndelo en tu próximo video y nota la diferencia.`,
         hashtags: "#EstrategiaDigital #MarketingDeContenidos #VentasDigitales #PosicionamientoDeMarca #NegociosDigitales",
-        icon: `<svg class="geo-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="7" y="7" width="14" height="14"/><rect x="15" y="15" width="14" height="14"/></svg>`,
         beats: [
           {
             label: "01 · Gancho & Palabra Clave",
@@ -1674,7 +1280,7 @@ David Ogilvy lo dejó claro: el consumidor no es tonto y hay que hablarle de lo 
           },
           {
             label: "02 · Analogía del Folleto",
-            text: "Piensa en cuando recibes un folleto en la calle que solo grita \"somos los mejores, cómpranos ya”."
+            text: "Piensa en cuando recibes un folleto en la calle que solo grita \"somos los mejores, cómpranos ya\"."
           },
           {
             label: "03 · Autoridad (David Ogilvy)",
@@ -1704,7 +1310,6 @@ La percepción de autoridad no se logra con un video increíblemente inteligente
 
 Cuando alguien entra a tu perfil por primera vez, ¿encuentra un archivo vivo de tu trabajo o solo un destello de vez en cuando?`,
         hashtags: "#AutoridadDigital #MarcaPersonal #MarketingParaNegocios #CrecimientoDeMarca #EstrategiaDeMarketing",
-        icon: `<svg class="geo-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><line x1="8" y1="26" x2="8" y2="18"/><line x1="14" y1="26" x2="14" y2="14"/><line x1="20" y1="26" x2="20" y2="10"/><line x1="26" y1="26" x2="26" y2="6"/></svg>`,
         beats: [
           {
             label: "01 · Gancho (El error de hablar para colegas)",
@@ -1735,7 +1340,6 @@ Cuando alguien entra a tu perfil por primera vez, ¿encuentra un archivo vivo de
         coverText: "Cancelado",
         copy: "Guion cancelado · No publicar.",
         hashtags: "#Cancelado",
-        icon: `<svg class="geo-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><line x1="9" y1="9" x2="27" y2="27"/><line x1="27" y1="9" x2="9" y2="27"/></svg>`,
         beats: [
           {
             label: "Registro Histórico · Cancelado",
@@ -1761,7 +1365,6 @@ Publicar algo imperfecto —pero bien pensado— te muestra qué se guarda, qué
 
 Si soltaras esa idea hoy en vez de pulirla un mes más, ¿qué aprenderías que todavía no sabes?`,
         hashtags: "#ValidacionDeIdeas #MarketingEstrategico #EmprendimientoDigital #MentalidadEmprendedora #CrecimientoDeNegocios",
-        icon: `<svg class="geo-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M18 7 A11 11 0 1 1 8.5 23.5"/><polyline points="7,18 8.5,24 14.5,22.5"/></svg>`,
         beats: [
           {
             label: "01 · Gancho (El costo del perfeccionismo)",
@@ -1788,7 +1391,6 @@ Si soltaras esa idea hoy en vez de pulirla un mes más, ¿qué aprenderías que 
         coverText: "Cancelado",
         copy: "Guion cancelado · Reemplazado por Reel 7.",
         hashtags: "#Cancelado",
-        icon: `<svg class="geo-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><line x1="9" y1="9" x2="27" y2="27"/><line x1="27" y1="9" x2="9" y2="27"/></svg>`,
         beats: [
           {
             label: "Registro Histórico · Cancelado",
@@ -1814,7 +1416,6 @@ No te sientas criticado antes de publicar: hay una audiencia allá afuera espera
 
 Ríndete a tu destino, acciona hoy mismo y construye tu diario de a bordo en público. Si quieres dejar de postergar y estructurar tu mensaje, escríbeme un DM con la palabra ACCIONAR.`,
         hashtags: "#Accionar #MarcaPersonal #SinExcusas #CreacionDeContenido #AgenciaReinventa",
-        icon: `<svg class="geo-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="18" cy="18" r="10"/><circle cx="18" cy="18" r="3"/></svg>`,
         beats: [
           {
             label: "01 · Gancho Crudo (Sin producción)",
@@ -1843,7 +1444,7 @@ Ríndete a tu destino, acciona hoy mismo y construye tu diario de a bordo en pú
         ]
       },
 
-      // ==================== SERIE 02 · NARRATIVA (APROBADOS) ====================
+      // ==================== SERIE 02 · NARRATIVA (8 FICHAS APROBADAS) ====================
       {
         id: "s2_reel1",
         series: "narrativa",
@@ -1862,7 +1463,6 @@ Cuando asumes el rol de guía —como propone Donald Miller en Cómo construir u
 
 ¿Qué cambia en tu mensaje cuando pones el problema de tu cliente al frente? Cuéntamelo en los comentarios.`,
         hashtags: "#NarrativaDeMarca #StoryBrand #ComunicacionProfesional #MarketingParaEspecialistas #MarcaPersonal",
-        icon: `<svg class="geo-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="18" cy="18" r="10"/><polygon points="18,11 21,18 18,25 15,18"/></svg>`,
         beats: [
           {
             label: "01 · Gancho (El error del título al centro)",
@@ -1896,7 +1496,6 @@ Como señala Robert McKee en Story, la tensión y el giro son lo que le dan sent
 
 Guarda este post si quieres recordar qué observar antes de grabar tu próximo video.`,
         hashtags: "#Storytelling #RobertMcKee #EstrategiaDeContenido #ComunicacionEfectiva #ProfesionistasEnRedes",
-        icon: `<svg class="geo-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><polygon points="8,24 18,10 28,24"/><line x1="8" y1="28" x2="28" y2="28"/></svg>`,
         beats: [
           {
             label: "01 · Gancho & Palabra Clave",
@@ -1930,7 +1529,6 @@ Annette Simmons explica en The Story Factor que la narrativa construye confianza
 
 Compártele este contenido a ese profesionista que sabe muchísimo, pero siente que no logra conectar al comunicarlo.`,
         hashtags: "#TheStoryFactor #ConfianzaDeMarca #NarrativaDigital #VentasConValor #ContenidoConProposito",
-        icon: `<svg class="geo-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="8" y="9" width="20" height="5"/><rect x="8" y="17" width="14" height="5"/><circle cx="25" cy="24" r="3"/></svg>`,
         beats: [
           {
             label: "01 · Gancho (El límite de los datos)",
@@ -1954,7 +1552,7 @@ Compártele este contenido a ese profesionista que sabe muchísimo, pero siente 
         pillar: "Traducción · Cercanía",
         title: "Dejar de hablar \"en difícil\"",
         cancelled: false,
-        defaultRecorded: false,
+        defaultRecorded: true,
         author: "Cercanía profesional",
         book: "Traducción de lenguaje técnico",
         coverText: "Hablar simple no resta nivel",
@@ -1964,7 +1562,6 @@ Cuando quitas la barrera de los tecnicismos innecesarios, tu mensaje deja de int
 
 ¿Qué término de tu especialidad explicarías hoy como si estuvieras platicando en una sobremesa?`,
         hashtags: "#ClaridadAlComunicar #LenguajeSimple #AutoridadProfesional #MarketingDeContenidos #CrecimientoEnRedes",
-        icon: `<svg class="geo-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 14 Q13 9 18 14 T28 14"/><path d="M8 22 Q13 17 18 22 T28 22"/></svg>`,
         beats: [
           {
             label: "01 · Gancho (El mito de lo técnico)",
@@ -1984,7 +1581,7 @@ Cuando quitas la barrera de los tecnicismos innecesarios, tu mensaje deja de int
         pillar: "Autenticidad · Cotidianidad",
         title: "La anécdota cotidiana como puente",
         cancelled: false,
-        defaultRecorded: false,
+        defaultRecorded: true,
         author: "Uso inconsciente",
         book: "Narrativa de lo cotidiano",
         coverText: "Ya sabes contar historias",
@@ -1994,7 +1591,6 @@ El cambio está en notar qué escena cotidiana guarda una lección útil para tu
 
 Si hoy te falta idea para publicar, mira qué pasó en tu jornada y cuéntalo con honestidad.`,
         hashtags: "#AutenticidadDigital #HistoriasReales #CreacionDeContenido #MarcaAutentica #EmprendedoresYProfesionistas",
-        icon: `<svg class="geo-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="11" cy="18" r="3"/><circle cx="25" cy="18" r="3"/><path d="M14 18 C16 12, 20 24, 22 18"/></svg>`,
         beats: [
           {
             label: "01 · Gancho (El buen chismecito)",
@@ -2014,7 +1610,7 @@ Si hoy te falta idea para publicar, mira qué pasó en tu jornada y cuéntalo co
         pillar: "Coherencia · Credibilidad",
         title: "Congruencia entre lo que dices y lo que haces",
         cancelled: false,
-        defaultRecorded: false,
+        defaultRecorded: true,
         author: "Agencia Reinventa",
         book: "Reputación y servicio real",
         coverText: "Tu historia se prueba al atender",
@@ -2024,7 +1620,6 @@ La congruencia entre lo que dices en redes y cómo actúas en tu práctica diari
 
 Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entregas, escríbeme un mensaje directo con la palabra NARRATIVA.`,
         hashtags: "#CongruenciaDeMarca #CredibilidadDigital #EstrategiaComercial #AgenciaReinventa #NegociosConSentido",
-        icon: `<svg class="geo-icon" viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.3"><rect x="9" y="9" width="18" height="18"/><line x1="9" y1="18" x2="27" y2="18"/><line x1="18" y1="9" x2="18" y2="27"/></svg>`,
         beats: [
           {
             label: "01 · Gancho (Congruencia vs. Viralidad)",
@@ -2035,12 +1630,82 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
             text: "No tienes que dominar todas las herramientas digitales para ser creíble; te basta con que tu historia sea coherente con tu práctica real. Que la gente que ya acudió contigo se tome la molestia de opinar bien de ti en un comentario es valiosísimo. Porque al final, la gente no compra solo una promesa: compra la tranquilidad de saber quién está detrás. ¿Qué tan alineado está lo que publicas con la experiencia real que entregas?"
           }
         ]
+      },
+      {
+        id: "s2_reel7",
+        series: "narrativa",
+        seriesLabel: "Serie 02",
+        number: "07",
+        pillar: "Traducción de discurso",
+        title: "Cuando sabes de tu oficio pero te trabas al armar la historia",
+        cancelled: false,
+        defaultRecorded: false,
+        author: "Consultoría · Estructura en 3 pasos",
+        book: "Del bloqueo narrativo a la claridad",
+        coverText: "No te falta tema, te falta orden",
+        copy: `Tener conocimiento de sobra no garantiza que sepas armar un discurso claro frente a la cámara; a veces solo te falta estructura, no viralidad.
+
+Cuando ordenas lo que realmente haces —tu core— alrededor de un problema real y una solución práctica, dejas de improvisar y empiezas a conectar con quien sí necesita tu servicio.
+
+Como consultor te ayudo a destrabar tu narrativa y a perder el miedo a grabar, pero la voz, la emoción y la frecuencia las pones tú.
+
+¿Qué historia de tu consulta, despacho o negocio vas a contar esta semana?`,
+        hashtags: "#NarrativaEnRedes #ConsultoriaDeMarca #ComunicacionConValor #MarcaPersonal #AgenciaReinventa",
+        beats: [
+          {
+            label: "01 · Planteamiento (La comida vs. la cámara)",
+            text: "¿Te ha pasado? estás en una comida y sujeto A le pregunta a sujeto B ¿a qué te dedicas?, sujeto B en dos minutos cuenta algo buenísimo, pero si le tocara hacerlo frente a la cámara se paralizarías y soltaría un discurso súper acartonado, cero natural."
+          },
+          {
+            label: "02 · Problema & Cambio de Enfoque",
+            text: "El probolema, no sabes cómo contar una historia olvidándonte de la camarite. Y el truco es todo lo contrario, no tienes que fingir que la cámara no está, tienes que switchear y pensar que esa camarita son los ojos de tu mejor amigo, los ojos de tu sobrino."
+          },
+          {
+            label: "03 · Solución Práctica & Ejemplo",
+            text: "¿Qué te recomiendo? Ordena el discurso de tu negocio en tres pasos: qué problema ve tu cliente, qué error suele cometer y qué cambia cuando lo resuelves. Por ejemplo, si eres odontólogo, en vez de hablar de resinas, cuenta qué pasa cuando alguien pospone una molestia hasta que duele de verdad. Yo le ayudo a mis clientes a ordenar ese relato y a soltar el miedo a cámara, pero la historia y la constancia en pantalla son suyas. ¿Qué quieres contar hoy?"
+          }
+        ]
+      },
+      {
+        id: "s2_reel8",
+        series: "narrativa",
+        seriesLabel: "Serie 02",
+        number: "08",
+        pillar: "Congruencia y honestidad",
+        title: "Por qué tu propio perfil demuestra que sí se puede empezar",
+        cancelled: false,
+        defaultRecorded: false,
+        author: "Consultoría · Proceso real",
+        book: "Salir de la falsa viralidad hacia el core",
+        coverText: "Sin trucos virales, con congruencia",
+        copy: `No hace falta perseguir una viralidad falsa ni fingir que ya lo tienes todo resuelto para empezar a comunicar con valor en redes.
+
+Lo que sostiene una marca es la congruencia entre lo que dices, lo que haces y el core de lo que realmente sabes resolver —algo que también estoy poniendo a prueba en vivo desde esta cuenta en construcción.
+
+Te ayudo con la estrategia y a soltar el miedo a la cámara, pero la autenticidad y la constancia al grabar son de quien está detrás del proyecto.
+
+¿Qué parte de tu trabajo merece contarse hoy tal cual es?`,
+        hashtags: "#CongruenciaDigital #NarrativaDeMarca #EstrategiaDeContenidos #EmprendedoresConValor #AgenciaReinventa",
+        beats: [
+          {
+            label: "01 · Planteamiento & Problema (El mito del show)",
+            text: "A veces un cliente me dice: \"Es que hay gente a la que se le da comunicar, yo no estoy hecho para las redes sociales\". El problema no es la cámara, ni un talento especial; el problema es tomar como referencia a creadores de contenido que montan un show y pensar que nosotros también debemos hacerlo para que lo que cuentes valga la pena."
+          },
+          {
+            label: "02 · Solución (Congruencia en vivo)",
+            text: "La solución. Obsérvate lo que haces todos los días y cuenta con congruencia eso que pasa: esta misma cuenta está arrancando de la misma forma, es un experimento en donde invito a mis clientes a crear. comunicar y crecer juntos porque al hacerlo soy congruente, muestro el proceso real, veo lo que funciona y lo que no y tomo decisiones creativas."
+          },
+          {
+            label: "03 · Llamado Práctico",
+            text: "Yo te acompaño a estructurar el mensaje y tú ayúdame creando la conexión que sólo se construye grabando un ratito todos los días ¿Qué vas a comunicar hoy? Igual y ni lo publicas, pero grábate."
+          }
+        ]
       }
     ];
 
-    // Local Storage Keys
-    const STORAGE_KEY = "reinventa_series_recorded_v3";
-    const DRIVE_STORAGE_KEY = "reinventa_series_drive_links_v3";
+    // Local Storage Keys (v5 con migración segura desde v4)
+    const STORAGE_KEY = "reinventa_series_recorded_v5";
+    const DRIVE_STORAGE_KEY = "reinventa_series_drive_links_v5";
 
     function loadSavedRecordings() {
       const defaults = {};
@@ -2048,22 +1713,41 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
         if (!s.cancelled && s.defaultRecorded) defaults[s.id] = true;
       });
       try {
+        const legacy = JSON.parse(localStorage.getItem("reinventa_series_recorded_v4") || "null");
         const stored = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
-        if (stored && typeof stored === "object") {
-          return { ...defaults, ...stored };
-        }
+        return {
+          ...(legacy && typeof legacy === "object" ? legacy : {}),
+          ...defaults,
+          ...(stored && typeof stored === "object" ? stored : {})
+        };
       } catch (e) {}
       return defaults;
     }
 
     function loadSavedDriveLinks() {
+      let legacy = {};
       let stored = {};
+      try {
+        legacy = JSON.parse(localStorage.getItem("reinventa_series_drive_links_v4") || "{}");
+      } catch (e) {
+        legacy = {};
+      }
       try {
         stored = JSON.parse(localStorage.getItem(DRIVE_STORAGE_KEY) || "{}");
       } catch (e) {
         stored = {};
       }
-      return { ...DRIVE_LINKS, ...stored };
+      const merged = { ...DRIVE_LINKS };
+      [legacy, stored].forEach(source => {
+        if (source && typeof source === "object") {
+          Object.keys(source).forEach(key => {
+            if (source[key] && String(source[key]).trim()) {
+              merged[key] = String(source[key]).trim();
+            }
+          });
+        }
+      });
+      return merged;
     }
 
     let recordedState = loadSavedRecordings();
@@ -2073,7 +1757,7 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
     let currentFilter = "active";
     let searchQuery = "";
     let activeScriptId = null;
-    let activeModalTab = "beats";
+    let activeModalTab = "full";
     let editingDriveScriptId = null;
 
     // Teleprompter State
@@ -2083,7 +1767,6 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
     let tpTimerInterval = null;
     let tpSeconds = 0;
 
-    // Helpers
     function saveState() {
       try {
         localStorage.setItem(STORAGE_KEY, JSON.stringify(recordedState));
@@ -2125,7 +1808,7 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
       clearTimeout(toast._timer);
       toast._timer = setTimeout(() => {
         toast.classList.remove("show");
-      }, 2400);
+      }, 2200);
     }
 
     async function copyToClipboard(text, successMsg = "Copiado al portapapeles") {
@@ -2143,6 +1826,12 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
       }
     }
 
+    function copyPlainScript(id) {
+      const s = SCRIPTS.find(item => item.id === id);
+      if (!s) return;
+      copyToClipboard(getFullScriptText(s), `Texto plano Reel ${s.number} copiado`);
+    }
+
     function escapeHtml(str) {
       return String(str)
         .replace(/&/g, "&amp;")
@@ -2154,6 +1843,37 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
     function getSeriesScripts() {
       if (currentSeries === "todas") return SCRIPTS;
       return SCRIPTS.filter(s => s.series === currentSeries);
+    }
+
+    // Navigation helpers (Previous / Next script inside current scope)
+    function getNavigableList() {
+      const scope = getSeriesScripts();
+      const nonCancelled = scope.filter(s => !s.cancelled);
+      return nonCancelled.length > 0 ? nonCancelled : scope;
+    }
+
+    function getAdjacentIds(id) {
+      const list = getNavigableList();
+      const idx = list.findIndex(s => s.id === id);
+      if (idx === -1) return { prevId: null, nextId: null };
+      return {
+        prevId: idx > 0 ? list[idx - 1].id : null,
+        nextId: idx < list.length - 1 ? list[idx + 1].id : null
+      };
+    }
+
+    function goAdjacentModal(dir) {
+      if (!activeScriptId) return;
+      const { prevId, nextId } = getAdjacentIds(activeScriptId);
+      const targetId = dir < 0 ? prevId : nextId;
+      if (targetId) openScriptModal(targetId);
+    }
+
+    function goAdjacentTeleprompter(dir) {
+      if (!activeScriptId) return;
+      const { prevId, nextId } = getAdjacentIds(activeScriptId);
+      const targetId = dir < 0 ? prevId : nextId;
+      if (targetId) launchTeleprompter(targetId);
     }
 
     function switchSeries(seriesKey) {
@@ -2169,10 +1889,6 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
         <span>${cfg.eyebrow[1]}</span>
       `;
       document.getElementById("heroTitle").textContent = cfg.title;
-      document.getElementById("bannerQuote").innerHTML = cfg.quote;
-      document.getElementById("bannerAuthors").textContent = cfg.authors;
-      document.getElementById("manifestoLead").innerHTML = cfg.manifesto;
-      document.getElementById("kpiHeaderTitle").textContent = cfg.kpiHeader;
       document.getElementById("sidebarTitle").textContent = cfg.sidebarTitle;
       document.getElementById("sidebarDesc").textContent = cfg.sidebarDesc;
 
@@ -2194,41 +1910,13 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
       renderScripts();
     }
 
-    // Update Metrics & Counters
     function updateMetrics() {
       const scopeScripts = getSeriesScripts();
       const activeScripts = scopeScripts.filter(s => !s.cancelled);
-      const cancelledCount = scopeScripts.filter(s => s.cancelled).length;
       const recordedCount = activeScripts.filter(s => Boolean(recordedState[s.id])).length;
-      const pendingCount = activeScripts.length - recordedCount;
-      const driveReadyCount = activeScripts.filter(s => Boolean((driveLinksState[s.id] || "").trim())).length;
-      const totalWords = activeScripts.reduce((sum, s) => sum + countWords(getFullScriptText(s)), 0);
-
-      document.getElementById("kpiActiveCount").textContent = String(activeScripts.length).padStart(2, "0");
-      document.getElementById("kpiActiveLabel").innerHTML = cancelledCount > 0
-        ? `guiones activos<br>(+${cancelledCount} cancelados)`
-        : `guiones activos<br>(~115 palabras c/u)`;
-
-      document.getElementById("recordedCounter").textContent = `${recordedCount} / ${activeScripts.length}`;
-      document.getElementById("pendingCounter").textContent = String(pendingCount).padStart(2, "0");
-      document.getElementById("totalWords").textContent = `~${totalWords}`;
-
-      if (currentSeries === "accionar") {
-        document.getElementById("seriesSubtitleTag").textContent = `Mostrando Serie 01 · ${driveReadyCount} videos listos en Google Drive`;
-        document.getElementById("bannerStatusCount").textContent = `${driveReadyCount} videos listos · ${cancelledCount} cancelados`;
-        document.getElementById("featuredTitle").textContent = "Abrir Teleprompter · Serie 01";
-      } else if (currentSeries === "narrativa") {
-        document.getElementById("seriesSubtitleTag").textContent = `Mostrando Serie 02 · 6 guiones aprobados listos para grabar`;
-        document.getElementById("bannerStatusCount").textContent = `${driveReadyCount} de 6 grabados`;
-        document.getElementById("featuredTitle").textContent = "Abrir Teleprompter · Serie 02";
-      } else {
-        document.getElementById("seriesSubtitleTag").textContent = `Mostrando Todas las series · ${driveReadyCount} videos en Drive`;
-        document.getElementById("bannerStatusCount").textContent = `${driveReadyCount} videos listos · ${cancelledCount} cancelados`;
-        document.getElementById("featuredTitle").textContent = "Abrir Teleprompter · Todas las series";
-      }
+      document.getElementById("sidebarProgress").textContent = `${recordedCount} / ${activeScripts.length} listos`;
     }
 
-    // Render Right Sticky Index
     function renderSidebarIndex() {
       const list = document.getElementById("sidebarIndex");
       const scopeScripts = getSeriesScripts();
@@ -2255,13 +1943,6 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
       }).join("");
     }
 
-    // Toggle Social Drawer on Card
-    function toggleSocialDrawer(id) {
-      const drawer = document.getElementById(`social-drawer-${id}`);
-      if (drawer) drawer.classList.toggle("open");
-    }
-
-    // Render Script Cards
     function renderScripts() {
       const grid = document.getElementById("scriptsGrid");
       const q = searchQuery.trim().toLowerCase();
@@ -2281,7 +1962,7 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
 
       if (filtered.length === 0) {
         grid.innerHTML = `
-          <div style="grid-column: 1 / -1; padding: 36px; border: 1px solid var(--border-hairline); background: var(--bg-surface); text-align: center; color: var(--ink-secondary); font-size: 14px;">
+          <div style="grid-column: 1 / -1; padding: 32px; border: 1px solid var(--border-hairline); background: var(--bg-surface); text-align: center; color: var(--ink-secondary); font-size: 13.5px;">
             No se encontraron guiones con ese criterio en esta vista.
           </div>
         `;
@@ -2293,34 +1974,25 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
         const words = countWords(fullText);
         const seriesBadge = currentSeries === "todas" ? `<span class="series-pill">${escapeHtml(s.seriesLabel)}</span>` : "";
 
-        // Cancelled card view
         if (s.cancelled) {
           return `
             <article class="script-card is-cancelled" id="card-${s.id}">
               <div>
                 <div class="card-top-row">
-                  ${s.icon}
-                  <span class="status-badge cancelled">Cancelado · Sin valor</span>
-                </div>
-                <div style="margin-top: 14px;">
                   <div class="script-meta-tag">${seriesBadge} Reel ${s.number} · ${escapeHtml(s.pillar)}</div>
-                  <h3 class="script-title">${escapeHtml(s.title)}</h3>
-                  <p class="script-excerpt">${escapeHtml(fullText)}</p>
+                  <span class="status-badge cancelled">Cancelado</span>
                 </div>
-                <div class="cancelled-reason" style="margin-top: 12px;">
-                  ${escapeHtml(s.cancelReason || "Guion cancelado.")}
-                </div>
+                <h3 class="script-title">${escapeHtml(s.title)}</h3>
+                <p class="script-excerpt">${escapeHtml(fullText)}</p>
+                <div class="cancelled-reason">${escapeHtml(s.cancelReason || "Guion cancelado.")}</div>
               </div>
-              <div>
-                <div class="card-actions">
-                  <button type="button" class="btn-card-secondary" onclick="openScriptModal('${s.id}')">Ver registro</button>
-                </div>
+              <div class="card-actions">
+                <button type="button" class="btn-card-secondary" onclick="openScriptModal('${s.id}')">Ver registro</button>
               </div>
             </article>
           `;
         }
 
-        // Active card view
         const isRec = Boolean(recordedState[s.id]);
         const rawDriveUrl = (driveLinksState[s.id] || "").trim();
         const directDownloadUrl = getDriveDirectDownloadUrl(rawDriveUrl);
@@ -2329,72 +2001,35 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
           <article class="script-card" id="card-${s.id}">
             <div>
               <div class="card-top-row">
-                ${s.icon}
-                <button type="button" class="status-badge ${isRec ? "recorded" : ""}" onclick="toggleRecorded('${s.id}')" title="Cambiar estado de grabación">
-                  ${isRec ? "✓ Video listo" : "Pendiente"}
+                <div class="script-meta-tag">${seriesBadge} Reel ${s.number} · ${escapeHtml(s.pillar)} · ${words} pal.</div>
+                <button type="button" class="status-badge ${isRec ? "recorded" : ""}" onclick="toggleRecorded('${s.id}')" title="Cambiar estado">
+                  ${isRec ? "✓ Listo" : "Pendiente"}
                 </button>
               </div>
-              <div style="margin-top: 14px;">
-                <div class="script-meta-tag">${seriesBadge} Reel ${s.number} · ${escapeHtml(s.pillar)} · ${words} palabras</div>
-                <h3 class="script-title">${escapeHtml(s.title)}</h3>
-                <p class="script-excerpt">${escapeHtml(fullText)}</p>
-              </div>
+              <h3 class="script-title">${escapeHtml(s.title)}</h3>
+              <p class="script-excerpt">${escapeHtml(fullText)}</p>
             </div>
 
-            <div style="display:flex; flex-direction:column; gap:10px;">
-              <div class="script-author-tag">
-                <strong>${escapeHtml(s.author)}</strong>
-                <span>${escapeHtml(s.book)}</span>
-              </div>
-
+            <div style="display:flex; flex-direction:column; gap:8px;">
               <!-- Google Drive Download Strip -->
               <div class="drive-strip">
                 ${rawDriveUrl ? `
                   <a href="${escapeHtml(directDownloadUrl)}" target="_blank" rel="noopener" class="btn-drive-download" title="Descargar video desde Google Drive">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-                      <polyline points="7 10 12 15 17 10"></polyline>
-                      <line x1="12" y1="15" x2="12" y2="3"></line>
-                    </svg>
-                    Descargar video · Drive
+                    ↓ Descargar video · Drive
                   </a>
                   <a href="${escapeHtml(rawDriveUrl)}" target="_blank" rel="noopener" class="btn-drive-icon" title="Ver en Google Drive">↗</a>
                 ` : `
                   <button type="button" class="btn-drive-download is-empty" onclick="openDriveModal('${s.id}')">
-                    + Vincular video en Google Drive
+                    + Vincular video Drive
                   </button>
                 `}
-                <button type="button" class="btn-drive-icon" onclick="openDriveModal('${s.id}')" title="Configurar enlace de Google Drive">✎</button>
+                <button type="button" class="btn-drive-icon" onclick="openDriveModal('${s.id}')" title="Editar enlace Drive">✎</button>
               </div>
 
-              <!-- Quick Copy & Hashtags Drawer -->
-              <div class="social-drawer" id="social-drawer-${s.id}">
-                <div>
-                  <div class="social-block-label">
-                    <span>Texto de portada</span>
-                    <button type="button" class="mini-copy-btn" onclick="copyField('${s.id}', 'cover')">Copiar portada</button>
-                  </div>
-                  <div class="social-cover-pill">${escapeHtml(s.coverText)}</div>
-                </div>
-                <div>
-                  <div class="social-block-label">
-                    <span>Copy (Descripción)</span>
-                    <button type="button" class="mini-copy-btn" onclick="copyField('${s.id}', 'copy')">Copiar copy</button>
-                  </div>
-                  <div class="social-copy-text">${escapeHtml(s.copy)}</div>
-                </div>
-                <div>
-                  <div class="social-block-label">
-                    <span>Hashtags</span>
-                    <button type="button" class="mini-copy-btn" onclick="copyField('${s.id}', 'hashtags')">Copiar hashtags</button>
-                  </div>
-                  <div class="social-hashtags-text">${escapeHtml(s.hashtags)}</div>
-                </div>
-              </div>
-
+              <!-- Quick Actions -->
               <div class="card-actions">
-                <button type="button" class="btn-card-primary" onclick="openScriptModal('${s.id}')">Leer guion</button>
-                <button type="button" class="btn-card-secondary" onclick="toggleSocialDrawer('${s.id}')">Copy & Hashtags</button>
+                <button type="button" class="btn-card-primary" onclick="copyPlainScript('${s.id}')">Copiar texto plano</button>
+                <button type="button" class="btn-card-secondary" onclick="openScriptModal('${s.id}')">Abrir</button>
                 <button type="button" class="btn-card-secondary" onclick="launchTeleprompter('${s.id}')">Teleprompter</button>
               </div>
             </div>
@@ -2493,15 +2128,18 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
       const s = SCRIPTS.find(item => item.id === id);
       if (!s) return;
       activeScriptId = id;
-      activeModalTab = "beats";
 
       document.getElementById("modalMeta").textContent = s.cancelled
         ? `${s.seriesLabel} · Reel ${s.number} · ${s.pillar} · CANCELADO`
-        : `${s.seriesLabel} · Reel ${s.number} · ${s.pillar} · Referente: ${s.author}`;
+        : `${s.seriesLabel} · Reel ${s.number} · ${s.pillar} · ${s.author}`;
       document.getElementById("modalTitle").textContent = s.title;
 
+      const { prevId, nextId } = getAdjacentIds(id);
+      document.getElementById("modalPrevBtn").disabled = !prevId;
+      document.getElementById("modalNextBtn").disabled = !nextId;
+
       document.querySelectorAll(".modal-tab").forEach(btn => {
-        btn.classList.toggle("active", btn.dataset.tab === "beats");
+        btn.classList.toggle("active", btn.dataset.tab === activeModalTab);
       });
 
       const tpBtn = document.getElementById("modalTeleprompterBtn");
@@ -2529,7 +2167,12 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
       if (!s) return;
       const body = document.getElementById("modalBodyContent");
 
-      if (activeModalTab === "beats") {
+      if (activeModalTab === "full") {
+        body.innerHTML = `
+          ${s.cancelled ? `<div class="cancelled-reason">${escapeHtml(s.cancelReason)}</div>` : ""}
+          <div class="full-script-text" style="${s.cancelled ? "text-decoration: line-through; color: var(--ink-muted);" : ""}">${escapeHtml(getFullScriptText(s))}</div>
+        `;
+      } else if (activeModalTab === "beats") {
         body.innerHTML = `
           ${s.cancelled ? `<div class="cancelled-reason">${escapeHtml(s.cancelReason)}</div>` : ""}
           <div class="script-beats">
@@ -2541,16 +2184,11 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
             `).join("")}
           </div>
         `;
-      } else if (activeModalTab === "full") {
-        body.innerHTML = `
-          ${s.cancelled ? `<div class="cancelled-reason">${escapeHtml(s.cancelReason)}</div>` : ""}
-          <div class="full-script-text" style="${s.cancelled ? "text-decoration: line-through; color: var(--ink-muted);" : ""}">${escapeHtml(getFullScriptText(s))}</div>
-        `;
       } else if (activeModalTab === "social") {
         body.innerHTML = `
           <div class="modal-social-box">
             <div class="modal-social-header">
-              <span>Texto de portada (Thumbnail / Hook visual)</span>
+              <span>Texto de portada</span>
               <button type="button" class="mini-copy-btn" onclick="copyField('${s.id}', 'cover')">Copiar portada</button>
             </div>
             <div style="font-size: 16px; font-weight: 500; color: var(--ink-primary);">${escapeHtml(s.coverText)}</div>
@@ -2558,7 +2196,7 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
 
           <div class="modal-social-box">
             <div class="modal-social-header">
-              <span>Copy / Descripción del Reel</span>
+              <span>Copy / Descripción</span>
               <button type="button" class="mini-copy-btn" onclick="copyField('${s.id}', 'copy')">Copiar copy</button>
             </div>
             <div style="font-size: 14px; line-height: 1.6; color: var(--ink-primary); white-space: pre-line;">${escapeHtml(s.copy)}</div>
@@ -2566,7 +2204,7 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
 
           <div class="modal-social-box">
             <div class="modal-social-header">
-              <span>Hashtags sugeridos</span>
+              <span>Hashtags</span>
               <button type="button" class="mini-copy-btn" onclick="copyField('${s.id}', 'hashtags')">Copiar hashtags</button>
             </div>
             <div style="font-size: 13.5px; font-weight: 500; color: var(--accent-sage);">${escapeHtml(s.hashtags)}</div>
@@ -2601,7 +2239,7 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
     function updateModalStatusButton() {
       const btn = document.getElementById("modalToggleStatusBtn");
       const isRec = Boolean(recordedState[activeScriptId]);
-      btn.textContent = isRec ? "✓ Grabado (cambiar)" : "Marcar como grabado";
+      btn.textContent = isRec ? "✓ Listo (cambiar)" : "Marcar como listo";
     }
 
     function closeScriptModal() {
@@ -2626,7 +2264,11 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
       const s = SCRIPTS.find(item => item.id === id);
       if (!s || s.cancelled) return;
       activeScriptId = id;
-      closeScriptModal();
+      document.getElementById("scriptModal").classList.remove("open");
+
+      const { prevId, nextId } = getAdjacentIds(id);
+      document.getElementById("tpPrevBtn").disabled = !prevId;
+      document.getElementById("tpNextBtn").disabled = !nextId;
 
       document.getElementById("tpTitle").textContent = `${s.seriesLabel} · Reel ${s.number} · ${s.title}`;
       const tpText = document.getElementById("tpText");
@@ -2637,7 +2279,7 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
       viewport.scrollTop = 0;
 
       tpRunning = false;
-      document.getElementById("tpPlayPauseBtn").textContent = "Iniciar desplazamiento";
+      document.getElementById("tpPlayPauseBtn").textContent = "Iniciar";
       resetTpTimer();
       document.getElementById("teleprompterOverlay").classList.add("open");
     }
@@ -2715,28 +2357,22 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
       renderScripts();
     });
 
+    document.getElementById("modalPrevBtn").addEventListener("click", () => goAdjacentModal(-1));
+    document.getElementById("modalNextBtn").addEventListener("click", () => goAdjacentModal(1));
+    document.getElementById("tpPrevBtn").addEventListener("click", () => goAdjacentTeleprompter(-1));
+    document.getElementById("tpNextBtn").addEventListener("click", () => goAdjacentTeleprompter(1));
+
     document.getElementById("closeModalBtn").addEventListener("click", closeScriptModal);
     document.getElementById("scriptModal").addEventListener("click", e => {
       if (e.target.id === "scriptModal") closeScriptModal();
     });
 
     document.getElementById("modalCopyBtn").addEventListener("click", () => {
-      const s = SCRIPTS.find(item => item.id === activeScriptId);
-      if (!s) return;
-      copyToClipboard(`${s.seriesLabel} · Reel ${s.number} · ${s.title}\n\n${getFullScriptText(s)}`, "Guion copiado al portapapeles");
+      if (activeScriptId) copyPlainScript(activeScriptId);
     });
 
     document.getElementById("modalCopyPostBtn").addEventListener("click", () => {
       if (activeScriptId) copyField(activeScriptId, "post");
-    });
-
-    document.getElementById("modalDownloadBtn").addEventListener("click", () => {
-      const s = SCRIPTS.find(item => item.id === activeScriptId);
-      if (!s) return;
-      const driveUrl = driveLinksState[s.id] ? `\nVIDEO EN GOOGLE DRIVE:\n${driveLinksState[s.id]}\n` : "";
-      const content = `${s.seriesLabel.toUpperCase()} · REEL ${s.number} · ${s.title.toUpperCase()} (${s.pillar})\nReferente: ${s.author} (${s.book})\n${driveUrl}\nGUION:\n${getFullScriptText(s)}\n\nTEXTO DE PORTADA:\n${s.coverText}\n\nCOPY:\n${s.copy}\n\nHASHTAGS:\n${s.hashtags}`;
-      downloadTxtFile(`AgenciaReinventa_${s.series}_Reel${s.number}.txt`, content);
-      showToast(`Descargando Reel ${s.number} (.TXT)`);
     });
 
     document.getElementById("modalToggleStatusBtn").addEventListener("click", () => {
@@ -2753,13 +2389,6 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
       if (next) launchTeleprompter(next.id);
     }
 
-    document.getElementById("featuredCard").addEventListener("click", openNextPending);
-    document.getElementById("featuredCard").addEventListener("keydown", e => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        openNextPending();
-      }
-    });
     document.getElementById("openNextPendingBtn").addEventListener("click", openNextPending);
 
     document.getElementById("downloadAllBtn").addEventListener("click", () => {
@@ -2767,7 +2396,7 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
       const activeList = getSeriesScripts().filter(s => !s.cancelled);
       const body = activeList.map(s => {
         const driveLine = driveLinksState[s.id] ? `Video Drive: ${driveLinksState[s.id]}\n` : "";
-        return `${s.seriesLabel.toUpperCase()} · REEL ${s.number} · ${s.title.toUpperCase()} (${s.pillar})\nReferente: ${s.author} — ${s.book}\n${driveLine}--------------------------------------------------------------------\nGUION:\n${getFullScriptText(s)}\n\nPORTADA: ${s.coverText}\n\nCOPY:\n${s.copy}\n\nHASHTAGS:\n${s.hashtags}`;
+        return `${s.seriesLabel.toUpperCase()} · REEL ${s.number} · ${s.title.toUpperCase()} (${s.pillar})\n${driveLine}--------------------------------------------------------------------\nGUION:\n${getFullScriptText(s)}\n\nPORTADA: ${s.coverText}\n\nCOPY:\n${s.copy}\n\nHASHTAGS:\n${s.hashtags}`;
       }).join("\n\n====================================================================\n\n");
       downloadTxtFile(`AgenciaReinventa_Guiones_${currentSeries}.txt`, header + body);
       showToast("Serie exportada en .TXT");
@@ -2789,14 +2418,25 @@ Si quieres ordenar tu discurso y alinear tu mensaje con lo que realmente entrega
     });
 
     document.addEventListener("keydown", e => {
+      const tpOpen = document.getElementById("teleprompterOverlay").classList.contains("open");
+      const modalOpen = document.getElementById("scriptModal").classList.contains("open");
+
       if (e.key === "Escape") {
         closeTeleprompter();
         closeScriptModal();
         closeDriveModal();
       }
-      if (e.code === "Space" && document.getElementById("teleprompterOverlay").classList.contains("open")) {
+      if (e.code === "Space" && tpOpen) {
         e.preventDefault();
         toggleTpScroll();
+      }
+      if (e.key === "ArrowLeft" && (modalOpen || tpOpen)) {
+        if (tpOpen) goAdjacentTeleprompter(-1);
+        else goAdjacentModal(-1);
+      }
+      if (e.key === "ArrowRight" && (modalOpen || tpOpen)) {
+        if (tpOpen) goAdjacentTeleprompter(1);
+        else goAdjacentModal(1);
       }
     });
 
